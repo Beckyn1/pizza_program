@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Fruits Basket</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="Description" lang="en" content="ADD SITE DESCRIPTION">
+		<meta name="author" content="ADD AUTHOR INFORMATION">
+		<meta name="robots" content="index, follow">
+
+		<!-- icons -->
+		<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+		<link rel="shortcut icon" href="favicon.ico">
+<link rel="stylesheet" href="assets/highlight/styles/tomorrow.css">
+<script src="assets/highlight/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+       
+
+		<!-- Override CSS file - add your own CSS rules -->
+		<link rel="stylesheet" href="assets/css/styles.css">
+
+	</head>
+	<body>
+		<div class="container">
+			<div class="header">
+				<h1 class="header-heading">Sitename</h1>
+			</div>
+			<div class="nav-bar">
+				<ul class="nav">
+					<li><a href="#">Nav item 1</a></li>
+					<li><a href="#">Nav item 2</a></li>
+					<li><a href="#">Nav item 3</a></li>
+				</ul>
+			</div>
+			<div class="content">
+
+                
+
+			
+                    
+					<h1>Brief</h1>
+					<hr>
+<h2>Initial project backlog</h2>
+	<img class="img-responsive" src="assets/img/backlog.jpg">
+
+    <!-- Heading levels -->
+    <h1>Sprint 1</h1>
+
+<p> Aim: to create a menu that allows the user to choose to see the list or quit the program</p>
+
+<h2>Rough Program Plan</h2>
+				<img class= "img-responsive" src="assets/img/plan_sprint_1.jpeg">
+<h2>Sprint Board 1 in Progress</h2>
+				<img class= "img-responsive" src="assets/img/sprint_1_kb.jpg">
+<h2>Basic Test of Program</h2>
+				<img class= "img-responsive" src="assets/img/test_1.jpg">
+<h2>Sprint Review</h2>
+<p>
+	Sprint 1 has run smoothly. In my plan I wanted to create a program which allows the user to show the list of options available and create a loop that
+	continues to run as long as the user does not choose to quit the program. It filled the intent of this sprint aim and there were no complications along the way.
+	For my next sprint, I want to make the program so that the user can select a specific fruit from the list and delete it off the list
+	(eat fruit in the fruit bowl). I also want to make the program able to add more pieces of fruit to the fruit bowl (from fruit types that are already in the bowl).
+</p>
+<h2>Github Push</h2>
+				<img class="img-responsive" src="assets/img/git_push_1.jpg">
+				<img class="img-responsive" src="assets/img/git_push_2.jpg">
+ <p>Reflection (+ anything about relevant implications)</p>
+<hr>
+<h1>Sprint 2</h1>
+
+<h2>Plan</h2>
+<img class="img-responsive" src="assets/img/sprint_2_plan.jpg">
+<h2>Function Plan</h2>
+<img class="img-responsive" src="assets/img/add_function_plan.jpg">
+<h2>Sprint Board 2 in Progress</h2>
+<img class="img-responsive" src="assets/img/sprint_2_kb.jpg">
+
+<h2>Testing</h2>
+
+<h3>Full test of Program</h3>
+<img class="img-responsive" src="assets/img/sprint_2_fr.jpg">
+<img class="img-responsive" src="assets/img/sprint_2_fr_2.jpg">
+<img class="img-responsive" src="assets/img/sprint_2_fr_3.jpg">
+<p>The program as a whole runs smoothly and all of the new functions (add and eat) work as planned. When the user enters
+an option available/shown on the list the program can go all the way from start to end, eating fruit, adding fruit, reviewing fruit
+and quitting the program. I want to add a message to the start of the program in the next sprint to provide more information
+for the user on what the program is/what it does. It would be nice for it to say something like "Welcome to the fruit bowl". I
+also want to add a message to the end of the program to confirm that the program has ended, as it is a bit confusing for the user
+right now. In the next version I also want the user to be able to add a new fruit type and delete pre-existing fruit types from the
+list.</p>
+
+<h2>Git push</h2>
+<img class="img-responsive" src="assets/img/git_push_3.jpg">
+<img class="img-responsive" src="assets/img/git_push_4.jpg">
+
+<h2>Sprint Review</h2>
+
+<h3>Lowercase and Uppercase</h3>
+<img class="img-responsive" src="assets/img/lowercase_a_sprint_2.jpg">
+<img class="img-responsive" src="assets/img/uppercase_a_sprint_2.jpg">
+
+<p> I tested lowercase "a" and captial "A" to see what would happen as "A" is a menu option. When I entered "a"
+it printed unrecognised entry but when I entered "A" the program worked. I would need to fix this in the next
+version and validate the program so that it accepts both the lower and upper case variants.</p>
+
+<h3>Number not in list</h3>
+<img class="img-responsive" src="assets/img/num_not_in_list_sprint_2.jpg">
+<img class="img-responsive" src="assets/img/word_not_sprint_2.jpg">
+<p>When the value entered is not a number stated on the list specifically, the program fails. I need to make the program
+let the loop continue and have an error message when they do not enter a number stated on the list. It also does not allow
+the word version of the number so in my next version I should validate the program to allow this.</p>
+
+<h3>Negative number</h3>
+<img class="img-responsive" src="assets/img/negative_num_sprint_2.jpg">
+<p>If the user wants to eat fruit and then selects minus 10 as their amount it adds instead of takes away.
+I think I should add a message to make the program clearer or I should validate the program so the user cannot
+add negative numbers.</p>
+
+<h3>Eat fruit</h3>
+<img class="img-responsive" src="assets/img/eat_fruit_negative_sprint_2.jpg">
+<p>If the user wants to eat more fruit than available the number of fruit available goes into the negatives. This
+needs to be validated as the user cannot eat negative fruit (fruit that is not there). I should also proably validate the program
+so that there is a max number of fruit you can add.</p>
+
+<hr>
+<h1>Sprint 3</h1>
+<img class="img-responsive" src="assets/img/sprint_3_plan.jpg">
+<p>Plan with data types and restrictions on data input</p>
+<p>Sprint 3 is my final version. In this version I have added a function that allows the user </p>
+ <p>Reflection (+ anything about relevant implications)</p>
+<hr>
+<h1> Relevant Implications Summary</h1>
+ <hr>
+ <hr>
+
+
+
+    <!-- Paragraphs -->
+    <h3>Example of formatted code</h3>
+	
+                
+
+
+<pre style="font-size: 1.5em;">
+<code class="Python">
+# interesting comment
+def review_fruit(l):
+    for x in l:
+        output = "{:&le; 10} -- {: &gt;4}".format(x[0], x[1])
+        print(output)
+    return None
+</code>
+</pre>
+
+  <h3>Table in case you need</h3>              
+<table class="my-table"><tr><th>Tracks</th><th>Album</th><th>Artist</th></tr><tr><td>Rosalyn</td><td>Night moves</td><td>Bob Seger</td></tr><tr><td>Rock n' Roll Music</td><td>Rock n' Roll Music</td><td>The Beatles</td></tr><tr><td>Roll Over Beethoven</td><td>Rock n' Roll Music</td><td>The Beatles</td></tr><tr><td>Right Down The Lane</td><td>City to City</td><td>Gerry Rafferty</td></tr><tr><td>Ramblin Man</td><td>Brothers and Sister</td><td>The Allman Brothers Band</td></tr><tr><td>Rocket Man (I think it's going to be a long, long time)</td><td>Honky Chateau</td><td>Elton John</td></tr></table>
+                
+            <hr>     
+                
+                <h3>Example paragraph</h3>
+					<p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
+					<hr>
+
+					<!-- Responsive images -->
+					<h3>Example image placements</h3>
+					<p>For images to be responsive (so that they will rescale to suit the width of the parent, use the <code>.img-responsive</code> class.</p>
+					<img class="img-responsive" src="assets/img/place_holder.png" alt="">
+                <hr>
+                <div class="col-container">
+                <div class="col">
+               <img class="img-responsive" src="assets/img/place_holder_sm.jpg" alt="">
+                <p>Ut wisi enim ad minim veniam, <a href="#">quis nostrud exerci tation ullamcorper</a> suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel.</p>
+                </div>
+                 <div class="col">
+                <img class="img-responsive" src="assets/img/place_holder_sm.jpg" alt="">
+                <p>Ut wisi enim ad minim veniam, <a href="#">quis nostrud exerci tation ullamcorper</a> suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel.</p>
+                </div>
+                </div>
+                <hr>
+               
+              
+
+					<!-- Lists -->
+					<h3>Unordered list</h3>
+					<p>Unordered lists are used to markup lists where list items do not require numbering.</p>
+					<ul>
+						<li>Ut wisi enim ad minim veniam</li>
+						<li>Quis nostrud exerci tation</li>
+						<li>Lamcorper suscipit lobortis nis</li>
+						<li>Ut aliquip ex ea commodo consequat</li>
+						<li>Duis autem vel eum iriure dolor</li>
+					</ul>
+					<hr>
+
+					<h3>Ordered list</h3>
+					<p>Ordered lists are used to markup lists where list items require numbering.</p>
+					<ol>
+						<li>Hendrerit in vulputate velit esse</li>
+						<li>Olestie consequat</li>
+						<li>Vel illum dolore eu feugiat</li>
+						<li>Nulla facilisis at vero eros</li>
+						<li>Accumsan et iusto odio</li>
+					</ol>
+					<hr>
+
+					<h3>Unstyled list</h3>
+					<p>You can make the list unstyled using the <code>list-unstyled</code> class.</p>
+					<ul class="list-unstyled">
+						<li>Ut wisi enim ad minim veniam</li>
+						<li>Quis nostrud exerci tation</li>
+						<li>Lamcorper suscipit lobortis nis</li>
+						<li>Ut aliquip ex ea commodo consequat</li>
+						<li>Duis autem vel eum iriure dolor</li>
+					</ul>
+					<hr>
+
+					<h3>Inline list</h3>
+					<p>You can make the list display inline using the <code>list-inline</code> class.</p>
+					<ul class="list-inline">
+						<li>One</li>
+						<li>Two</li>
+						<li>Three</li>
+						<li>Four</li>
+					</ul>
+					<hr>
+
+				
+
+					<h3>Buttons</h3>
+					<p>You can apply the <code>btn</code> class to any element that requires a button style.</p>
+					<p><a href="#" class="btn">Submit</a></p>
+					<hr>
+
+
+
+               
+            
+
+			
+			</div>
+			<div class="footer">
+				&copy; Copyright 2015
+			</div>
+		</div>
+	</body>
+</html>
