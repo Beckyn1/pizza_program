@@ -2,7 +2,7 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>Fruits Basket</title>
+		<title>Papa's Pizzeria</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="Description" lang="en" content="ADD SITE DESCRIPTION">
 		<meta name="author" content="ADD AUTHOR INFORMATION">
@@ -46,81 +46,110 @@
     <!-- Heading levels -->
     <h1>Sprint 1</h1>
 
-<p> Aim: to create a menu that allows the user to choose to see the list or quit the program</p>
+<p> Aim: to create a menu that allows the user to choose to see the list, order an item from the menu or quit the program</p>
 
 <h2>Rough Program Plan</h2>
-				<img class= "img-responsive" src="assets/img/plan_sprint_1.jpeg">
+				<img class= "img-responsive" src="assets/img/sprint_1_plan.jpg">
+<br>
 <h2>Sprint Board 1 in Progress</h2>
 				<img class= "img-responsive" src="assets/img/sprint_1_kb.jpg">
 <h2>Basic Test of Program</h2>
-				<img class= "img-responsive" src="assets/img/test_1.jpg">
+
 <h2>Sprint Review</h2>
 <p>
-	Sprint 1 has run smoothly. In my plan I wanted to create a program which allows the user to show the list of options available and create a loop that
-	continues to run as long as the user does not choose to quit the program. It filled the intent of this sprint aim and there were no complications along the way.
-	For my next sprint, I want to make the program so that the user can select a specific fruit from the list and delete it off the list
-	(eat fruit in the fruit bowl). I also want to make the program able to add more pieces of fruit to the fruit bowl (from fruit types that are already in the bowl).
+	For sprint 1, I wanted to create a basic pizza menu which had two options available on it. I also wanted the program
+	to ask the user if they wanted delivery or pick up and made the program ask for the  user's name. As well as this, I
+	also got the program to print out the list of pizza options available, ask the user what they wanted and repeated what
+	they chose. This will be the basic structure for my program, though for my next sprint, I need to work out how I should
+	create the ordering part of the program. For my ordering program, it needs to be able to connect to both the pizza menu list
+	and the options list for what the user wants to do. For this, I will do some testing to see if the ordering part would work
+	better as a part of the main function or as it's own separate function. After I figure out how I want to design the order
+	system, I want to add functions that allow the user to add the number of pizzas the customer ordered to the order and also
+	take away amounts. I also want to have the cost of the order update depending on how many pizzas are ordered.
+
+	I also want to change the design of the delivery and pick up system, so that the code isn't as repetitive as it is currently
+	the same code in both functions except one is for delivery and one is for pick up and it seems unconventional.
+
+	I am happy with how my first sprint has ran and I think it suits the basic purpose fine, though there are definitely a lot
+	of things I still need to fix.
+
 </p>
+
 <h2>Github Push</h2>
 				<img class="img-responsive" src="assets/img/git_push_1.jpg">
 				<img class="img-responsive" src="assets/img/git_push_2.jpg">
- <p>Reflection (+ anything about relevant implications)</p>
 <hr>
 <h1>Sprint 2</h1>
 
-<h2>Plan</h2>
-<img class="img-responsive" src="assets/img/sprint_2_plan.jpg">
-<h2>Function Plan</h2>
-<img class="img-responsive" src="assets/img/add_function_plan.jpg">
+<h2>Plan for first version of sprint 2</h2>
+<img class="img-responsive" src="assets/img/s2_plan_1.jpg">
+<h2>Plan for second version of sprint 2</h2>
+<img class="img-responsive" src="assets/img/ADD THIS IN.jpg">
 <h2>Sprint Board 2 in Progress</h2>
-<img class="img-responsive" src="assets/img/sprint_2_kb.jpg">
+<img class="img-responsive" src="assets/img/s2_kb.jpg">
+
+
+<h3>Full test of Program</h3>
+<img class="img-responsive" src="assets/img/s_2d2_1.jpg">
+<img class="img-responsive" src="assets/img/s_2d2_2.jpg">
+<img class="img-responsive" src="assets/img/s_2d2_4.jpg">
+<p>Here is a standard run through of the program. It may be better to instead make a "place order" message/function
+as well/instead of a quit function to simulate a pizza shop more. So that would mean when they are done they could
+choose to finalise their order and it takes them to another part which shows them their total etc.</p>
 
 <h2>Testing</h2>
 
-<h3>Full test of Program</h3>
-<img class="img-responsive" src="assets/img/sprint_2_fr.jpg">
-<img class="img-responsive" src="assets/img/sprint_2_fr_2.jpg">
-<img class="img-responsive" src="assets/img/sprint_2_fr_3.jpg">
-<p>The program as a whole runs smoothly and all of the new functions (add and eat) work as planned. When the user enters
-an option available/shown on the list the program can go all the way from start to end, eating fruit, adding fruit, reviewing fruit
-and quitting the program. I want to add a message to the start of the program in the next sprint to provide more information
-for the user on what the program is/what it does. It would be nice for it to say something like "Welcome to the fruit bowl". I
-also want to add a message to the end of the program to confirm that the program has ended, as it is a bit confusing for the user
-right now. In the next version I also want the user to be able to add a new fruit type and delete pre-existing fruit types from the
-list.</p>
+<h3>This was my first design of the program with the add and remove function. It didn't work how I wanted it
+to and the code was too repetitive so I ended up changing it.</h3>
+<img class="img-responsive" src="assets/img/s_2d1_1.jpg">
+<img class="img-responsive" src="assets/img/s_2d1_2.jpg">
+<img class="img-responsive" src="assets/img/s_2d1_3.jpg">
+
+<img class="img-responsive" src="assets/img/s_2d2_8.jpg">
+<p>On this test, I tried removing more pizzas than what was available, and the amount of pizzas went into the negatives.
+For a future sprint, I am going to make it so that the program only allows the user to delete what is already present.</p>
+
+						<h2>Sprint Review</h2>
+				<p>
+	In this version I added three new functions. I separated my main function into the main function and the order function,
+	I also added an adding to the pizza quantity function and I added a remove pizza quantity function. The main function now just has
+	a basic menu which asks the user if they want delivery or pick up and redirects the user's choice to the function that they selected.
+	From there, the delivery or pick up function then redirects to the order function. I will add more to the delivery and pick up
+	functions in my next sprint, so that the program asks for the address and phone number when the user chooses the pick up option. In
+	the order function, it has a menu which asks the user if they want to add pizza quantity to the order, remove from the pizza quantity
+	or quit. If the user chooses to add to the pizza quantity, it redirects them to the add_pizza function. The add_pizza function prints
+	out the menu and then asks the user what pizza they want to add. Currently the user has to select the item menu number but for the future
+	I want to look into changing this so that they can select the menu number or the word version (eg. cheese pizza instead of 0). The function
+	then adds to the pizza quantity depending on the amount the user selects and updates the cost. If then asks the user if they want to
+	add another pizza and if they do, the add_pizza function runs again, if they don't the program returns to the order menu, where the user
+	can then choose to add another pizza again, remove pizzas or quit. The remove pizza function allows user to select a pizza type from the
+	list and choose the quantity of pizza that they want to remove. However, an issue I have with this is that the user is able to go into
+	negative quantities. I want to make the program to only allow the user to reduce the amount that is present and I will likely fix this in my
+	next sprint or when I do validation. Another issue with the remove function is how it subtracts from the cost. I want the program to eventually
+	add to a total cost as a customer orders more pizza and then have the cost removed from the total amount instead of just saying - $10 as it
+	currently does. I will likely fix this when I reach sprint 4 however. Another issue that I need to fix is my messages and formatting. Some
+	of the messages and formatting are hard to read and are confusing. I will fix this in my final sprint or when I do validation however.
+</p>
+<br>
+<p>
+	While I was creating sprint 2 of the program I had to run quite a few tests as I had issues when I was designing the order function.
+	As I said before, I split the main function into the main function and an order function. One of the reasons I did this was because
+	I had a lot of repetition in my delivery and pick up functions. In my old design, they had the order code but kept inside delivery
+	and pick up functions (basically the order function was displayed twice). As they both do the same thing for the main part of the pizza
+	program (which was what I was designing in sprint 2), it made sense to make an order function and then redirect the delivery and pick up
+	function to it. I also decided to do this because for my quit option in the add and remove functions, it needed somewhere to redirect to
+	after the user was done and I didn't want it repeating the delivery or pick up messages and I also didn't want it to redirect to the main menu.
+	Then, I had an issue with the quitting option in the order function. First, instead of stopping the program, it would redirect to the start
+	of the order function. Then, I changed something and it would redirect to the main menu and the user would have to press quit again for the
+	program to stop. This design was unconventional and I had to run some tests to figure out where to put/remove loops and I figured out how to
+	allow the program to quit at the order function.
+
+	I think the order design is quite good now however, as it is easy to update and add new functions to. When I come to making a confirmation
+	or review function that prints out the full order it should be quite a simple process.
+</p>
 
 <h2>Git push</h2>
-<img class="img-responsive" src="assets/img/git_push_3.jpg">
-<img class="img-responsive" src="assets/img/git_push_4.jpg">
 
-<h2>Sprint Review</h2>
-
-<h3>Lowercase and Uppercase</h3>
-<img class="img-responsive" src="assets/img/lowercase_a_sprint_2.jpg">
-<img class="img-responsive" src="assets/img/uppercase_a_sprint_2.jpg">
-
-<p> I tested lowercase "a" and captial "A" to see what would happen as "A" is a menu option. When I entered "a"
-it printed unrecognised entry but when I entered "A" the program worked. I would need to fix this in the next
-version and validate the program so that it accepts both the lower and upper case variants.</p>
-
-<h3>Number not in list</h3>
-<img class="img-responsive" src="assets/img/num_not_in_list_sprint_2.jpg">
-<img class="img-responsive" src="assets/img/word_not_sprint_2.jpg">
-<p>When the value entered is not a number stated on the list specifically, the program fails. I need to make the program
-let the loop continue and have an error message when they do not enter a number stated on the list. It also does not allow
-the word version of the number so in my next version I should validate the program to allow this.</p>
-
-<h3>Negative number</h3>
-<img class="img-responsive" src="assets/img/negative_num_sprint_2.jpg">
-<p>If the user wants to eat fruit and then selects minus 10 as their amount it adds instead of takes away.
-I think I should add a message to make the program clearer or I should validate the program so the user cannot
-add negative numbers.</p>
-
-<h3>Eat fruit</h3>
-<img class="img-responsive" src="assets/img/eat_fruit_negative_sprint_2.jpg">
-<p>If the user wants to eat more fruit than available the number of fruit available goes into the negatives. This
-needs to be validated as the user cannot eat negative fruit (fruit that is not there). I should also proably validate the program
-so that there is a max number of fruit you can add.</p>
 
 <hr>
 <h1>Sprint 3</h1>
