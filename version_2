@@ -238,7 +238,7 @@ if __name__ == "__main__":
             elif order == "R":
                 remove_pizza(pizza_list)
         else:
-            print("Unrecognised entry must be A or R")
+            print("Unrecognised entry must be As or R")
 
 --- test
 

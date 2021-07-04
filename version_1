@@ -80,27 +80,30 @@ def get_string(m):
 
 
 def pick_up(l):
-    name = get_string("What is your name?")
     for i in range(0, len(l)):
         output = "{}: {:<10} -- ${}".format(i, l[i][0], l[i][1])
         print(output)
-    user_choice = get_integer("Hi {}, what item number off the menu would you like?".format(name))
+    user_choice = get_integer("Hi, what item number off the menu would you like?")
     if -1 < user_choice < len(l):
-        print("{} is chosen".format(l[user_choice][0]))
+        print("{} pizza is chosen".format(l[user_choice][0]))
+        print("Thank you for ordering with Papa's Pizzeria!")
+        return
     else:
         print("Unrecognisable entry")
-
+        return pick_up(l)
 
 def delivery(l):
-    name = get_string("What is your name?")
     for i in range(0, len(l)):
         output = "{}: {:<10} -- ${} ".format(i, l[i][0], l[i][1])
         print(output)
-    user_choice = get_integer("Hi {}, what item number off the menu would you like?".format(name))
+    user_choice = get_integer("Hi, what item number off the menu would you like?")
     if -1 < user_choice < len(l):
-        print("{} is chosen".format(l[user_choice][0]))
+        print("{} pizza is chosen".format(l[user_choice][0]))
+        print("Thank you for ordering with Papa's Pizzeria!")
+        return
     else:
         print("Unrecognisable entry")
+        return delivery(l)
 
 
 def main():
@@ -130,8 +133,10 @@ def main():
         print("-" * 42)
         if service == "D":
             delivery(pizza_list)
+            run_program = False
         elif service == "P":
             pick_up(pizza_list)
+            run_program = False
         elif service == "Q":
             print("Thank you for ordering with Papa's Pizzeria!")
             run_program = False
