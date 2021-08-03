@@ -160,11 +160,48 @@ For a future sprint, I am going to make it so that the program only allows the u
 #ADD IN PLAN FOR ORDER FUNCTION
 
 <p>
-	In my 3rd version, I have changed th
+	In my 3rd version, I decided to do change the base structure of my pizza program. In my previous version, I had the order details
+	stored within a list called "pizza_list", where when a pizza is added to the order, the quantity would update within the pizza list
+	and the cost would be set to $5 within the list. However, this design was not flexible and also caused some problems when I wanted
+	to further extend my program, so I had to change it. One of the problems it caused was that when I was creating my review function,
+	I couldn't print out the customer's order without printing out all of the pizza list options (so it would print pizza options
+	where the quantity was 0 as well as pizza options that had a quantity more than 0). Visually, this was not appealing and it didn't
+	make sense as a program to print out what the user had not ordered. So, I decided to instead use a list to store the pizza menu
+	options, an empty list to store customer order details and the total cost is stored in a separate value.
+	In the empty customer order list, it allowed me to add what the user ordered and the list kept building as they ordered more or less.
+	As the list only contained what the user ordered, it meant that I was able to only print what they ordered in the review function.
 
+	I also removed the order function. The order function was excessive and unnecessary as I could include everything in the order function
+	in the main function. It was also confusing to work with when I was creating exit options as it had to go through the main function to quit.
+
+	In version 3, as mentioned earlier, I added a review function. The review function allows users to see what the order consists of and
+	review the customer details such as deliver address, name, etc. In the review function, it asks the user if they wish to confirm the order
+	or if they want to continue adding more items to the order. It also prints out the customer details. I will update this in my next version
+	to make the review function more thorough, however. I want to rearrange the format so that the information given is clearer.
+
+	I also changed the base structure slightly so that the program runs more smoothly. I now have the delivery/pick up
+	function as an option in the menu instead of starting the program with the deliver/pick up option. I am also going to have the program not start
+	with adding a new pizza immediately and instead give the user a menu of options. To make sure the order only goes through if a pizza is added
+	to the order, I am going to validate my program so that the review function cannot be called if nothing has been added to the order. I will
+	also validate so that if the user enters a pizza that is already in their order, it redirects to the add pizza function instead of entering
+	a value twice.
+
+	I am also going to have the delivery/pick up function repeat the details the user entered as a confirmation message to check that the details
+	are correct and give the user the option to change the details if they are wrong.
+
+	I am also going to combine the subtract pizza and delete pizza function. This is so that if the quantity of pizzas in the order becomes 0,
+	the pizza will be removed from the order, instead of having two separate functions as it can get confusing and difficult to validate.
+
+	I will also combine the subtract/delete and the add to an existing pizza quantity function so it is easier to validate the user not being
+	able to add or delete a pizza when there is no pizza quantity.
+
+	I also plan to set a restriction on how many pizzas the customer can order, so that the program is more realistic and I need to validate the input
+	functions so that they will only accept certain values.
+
+	I also need to validate customer details so that the customer enters an address and phone number in proper formatting. I also need to set a
+	minimum/maximum on the length of the name.
 
 </p>
-
 <p>Plan with data types and restrictions on data input</p>
 <p></p>
  <p>Reflection (+ anything about relevant implications)</p>

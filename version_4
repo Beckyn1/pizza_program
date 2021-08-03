@@ -1,9 +1,18 @@
-import re
-
-
-def get_integer(m):
-    user_input = int(input(m))
-    return user_input
+def get_integer(m, min_, max_):
+    cont = "y"
+    while cont == "y":
+        try:
+            my_integer = int(input(m))
+        except ValueError:
+            print("enter an integer")
+            continue
+        if my_integer < min_:
+            print("too low")
+            continue
+        elif my_integer > max_:
+            print("too high")
+            continue
+        return my_integer
 
 
 def get_string(m):
@@ -65,42 +74,6 @@ def delivery(c, d, l):
         return delivery(c, d, l)
 
 
-def new_pizza(l, c, p):
-    for i in range(0, len(p)):
-        output = "{}: {:<10} -- ${} ".format(i, p[i][0], p[i][1])
-        print(output)
-    # validate only to not add to list if already in list
-    # validate entries
-    choice = get_integer("Please choose a menu item number =>")
-    quantity = get_integer("Please enter a quantity")
-    new_list = [p[choice][0], quantity, p[choice][1]]
-    c += quantity * p[choice][1]
-    # adds cost of pizzas together
-    l.append(new_list)
-    print("{} {} pizzas -- ${} have been added to the order".format(quantity, p[choice][0], p[choice][1]))
-    print("-" * 42)
-    print("Cost is ${}".format(c))
-    print("-" * 42)
-    return
-
-
-def edit_order(l, c, e):
-    if len(l):
-        for x in range(0, len(e)):
-            output = "{}: {}".format(e[x][0], e[x][1])
-            print(output)
-        order_choice = get_string("Please select an option =>")
-        if order_choice == "A":
-            add_pizza(l, c)
-            return
-        elif order_choice == "R":
-            remove_pizza(l,c)
-            return
-    else:
-        print("Please add a pizza to the order first")
-        print("-" * 42)
-
-
 def add_pizza(l, c):
     # print list with indexes
     for i in range(0, len(l)):
@@ -121,30 +94,55 @@ def add_pizza(l, c):
     return
 
 
-def remove_pizza(l, c):
+def subtract_pizza(l, c):
+
     for i in range(0, len(l)):
         output = "{}: {} {:<10} -- ${}".format(i, l[i][1], l[i][0], l[i][2])
         print(output)
-        # print list with indexes
-        # print list with indexes
-        choice = get_integer("Please choose a menu item number => ")
-        # validate
-        quantity = get_integer("how many {} pizzas would you like to remove".format(l[choice][0]))
-        # validate
-        if quantity < l[i][1]:
-            l[choice][1] -= quantity
-            c -= l[choice][2] * - l[choice][1]
-            print("You  now have {} {} pizzas".format(l[choice][1], l[choice][0]))
-            print("-" * 42)
-            print("Cost is ${}".format(c))
-            print("-" * 42)
-            return
-        elif quantity >= l[i][1]:
-            l.pop(choice)
-            print("{} has been removed".format(choice))
-            return
-        else:
-            return remove_pizza(l, c)
+    # print list with indexes
+    # print list with indexes
+
+    choice = get_integer("Please choose a menu item number => ")
+    # validate
+    quantity = get_integer("how many {} pizzas would you like to remove".format(l[choice][0]))
+    # validate
+    l[choice][1] -= quantity
+    c -= l[choice][2] * - l[choice][1]
+    print("You  now have {} {} pizzas".format(l[choice][1], l[choice][0]))
+    print("-" * 42)
+    print("Cost is ${}".format(c))
+    print("-" * 42)
+    return
+
+
+def new_pizza(l, c, p):
+    for i in range(0, len(p)):
+        output = "{}: {:<10} -- ${} ".format(i, p[i][0], p[i][1])
+        print(output)
+    # validate only to not add to list if already in list
+    # validate entries
+    choice = get_integer("Please choose a menu item number =>")
+    quantity = get_integer("Please enter a quantity")
+    new_list = [p[choice][0], quantity, p[choice][1]]
+    c += quantity * p[choice][1]
+    # adds cost of pizzas together
+    l.append(new_list)
+    print("{} {} pizzas -- ${} have been added to the order".format(quantity, p[choice][0], p[choice][1]))
+    print("-" * 42)
+    print("Cost is ${}".format(c))
+    print("-" * 42)
+    return
+
+
+def delete_pizza(l):
+    for i in range(0, len(l)):
+        output = "{}: {} {:<10} -- ${} ".format(i, l[i][1], l[i][0], l[i][2])
+        print(output)
+
+    choice = get_integer("Which pizza type do you want to delete?")
+    l.pop(choice)
+    print("{} is removed".format(choice))
+    return
 
 
 def get_customer_details(o, c, d, l):
@@ -171,35 +169,26 @@ def menu_pizza(p):
 
 
 def review_order(l, c, d):
-    if len(l):
-        for i in range(0, len(l)):
-            output = "{}:{} {:<10} -- ${}".format(i, l[i][1], l[i][0], l[i][2])
-            print(output)
-            c += l[i][1] * l[i][2]
-        print("Total cost is ${}".format(c))
-        if len(d):
-            confirm = get_string("Confirm Order, Y or N?")
-            if confirm == "Y":
-                print("Your total cost is ${}".format(c))
-                print("-" * 42)
-                for i in range(0, len(d)):
-                    output = "{}: {}".format(d[i][0], d[i][1])
-                    print(output)
-                print("Thank you for ordering with Papa's Pizzeria!")
-                print("---Starting New Order---")
-                l.clear()
-                d.clear()
-                return "Complete"
-            elif confirm == "N":
-                return
-            else:
-                print("Unrecognisable entry")
-                return review_order(l, c, d)
-        else:
-            print("Please fill in customer details")
-    else:
-        print("Please add a pizza to the order first")
+    for i in range(0, len(l)):
+        output = "{}:{} {:<10} -- ${}".format(i, l[i][1], l[i][0], l[i][2])
+        print(output)
+        c += l[i][1] * l[i][2]
+    print("Total cost is ${}".format(c))
+    confirm = get_string("Confirm Order, Y or N?")
+    if confirm == "Y":
+        print("Your total cost is ${}".format(c))
         print("-" * 42)
+        for i in range(0, len(d)):
+            output = "{}: {}".format(d[i][0], d[i][1])
+            print(output)
+        print("Thank you for ordering with Papa's Pizzeria!")
+        print("---Starting New Order---")
+        return "Complete"
+    elif confirm == "N":
+        return
+    else:
+        print("Unrecognisable entry")
+        return review_order(l, c, d)
 
 
 def main():
@@ -218,7 +207,9 @@ def main():
         ["M", "Menu"],
         ["G", "get customer details"],
         ["N", "add pizza to order"],
-        ["E", "edit order"],
+        ["D", "delete pizza from order"],
+        ["A", "add to pizza quantity"],
+        ["S", "subtract from order"],
         ["R", "review order"],
         ["Q", "quit"]
     ]
@@ -226,11 +217,6 @@ def main():
     option_list = [
         ["D", "Delivery"],
         ["P", "Pick-up"]
-    ]
-
-    edit_list = [
-        ["A", "add pizza"],
-        ["R", "remove pizza"]
     ]
 
     customer_details = []
@@ -251,8 +237,12 @@ def main():
             get_customer_details(option_list, cost, customer_details, customer_list)
         elif order_choice == "N":
             new_pizza(customer_list, cost, pizza_list)
-        elif order_choice == "E":
-            edit_order(customer_list, cost, edit_list)
+        elif order_choice == "A":
+            add_pizza(customer_list, cost)
+        elif order_choice == "S":
+            subtract_pizza(customer_list, cost)
+        elif order_choice == "D":
+            delete_pizza(customer_list)
         elif order_choice == "R":
             result = review_order(customer_list, cost, customer_details)
         elif order_choice == "Q":
