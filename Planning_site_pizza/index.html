@@ -49,7 +49,7 @@
 <p> Aim: to create a menu that allows the user to choose to see the list, order an item from the menu or quit the program</p>
 
 <h2>Rough Program Plan</h2>
-				<img class= "img-responsive" src="assets/img/.jpg">
+				<img class= "img-responsive" src="assets/img/sprint_1_plan.jpg">
 <br>
 <h2>Sprint Board 1 in Progress</h2>
 				<img class= "img-responsive" src="assets/img/s_1_kb.jpg">
@@ -184,22 +184,10 @@ For a future sprint, I am going to make it so that the program only allows the u
 	with adding a new pizza immediately and instead give the user a menu of options. To make sure the order only goes through if a pizza is added
 	to the order, I am going to validate my program so that the review function cannot be called if nothing has been added to the order. I will
 	also validate so that if the user enters a pizza that is already in their order, it redirects to the add pizza function instead of entering
-	a value twice.
+	a value twice. I will also add other validation functions for integer and string entries.
 
 	I am also going to have the delivery/pick up function repeat the details the user entered as a confirmation message to check that the details
 	are correct and give the user the option to change the details if they are wrong.
-
-	I am also going to combine the subtract pizza and delete pizza function. This is so that if the quantity of pizzas in the order becomes 0,
-	the pizza will be removed from the order, instead of having two separate functions as it can get confusing and difficult to validate.
-
-	I will also combine the subtract/delete and the add to an existing pizza quantity function so it is easier to validate the user not being
-	able to add or delete a pizza when there is no pizza quantity.
-
-	I also plan to set a restriction on how many pizzas the customer can order, so that the program is more realistic and I need to validate the input
-	functions so that they will only accept certain values.
-
-	I also need to validate customer details so that the customer enters an address and phone number in proper formatting. I also need to set a
-	minimum/maximum on the length of the name.
 
 </p>
 <p>Plan with data types and restrictions on data input</p>
@@ -207,6 +195,45 @@ For a future sprint, I am going to make it so that the program only allows the u
  <p>Reflection (+ anything about relevant implications)</p>
 <hr>
 <h1> Relevant Implications Summary</h1>
+
+<p>
+Future proofing
+	describe
+	- define what we mean
+	- easy to update
+	- easy to add new features
+		address
+		- function based build
+		- each feature is run from a function
+		- any new feature could be created with a new function and a new menu option added
+	- easy for another developer to work on and improve.
+		- comments, doctyping, program starts with main function, easy for a new developer to see how the program works and
+	make changes.
+
+
+Functionality
+	describe
+	- define what we mean
+	- does not crash
+	- total gets added properly, pizzas are added properly
+		- tested regularly, systematically after each sprint
+		- role play tests/other people use
+
+Usability
+	describe
+	- define what we mean
+	- is the program easy to use
+	- gives informative user feedback
+	- communicates if user made an error
+	- fixes error on its own
+		- upper and lower or ignoring spaces
+	- uses consistent navigation system
+		- predictable, easy to learn how to use
+		- easy to return user to main menu
+		- exit out at any time
+	- give feedback when task is done
+		- eg 5 pizzas have been added
+</p>
  <hr>
  <hr>
 
