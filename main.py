@@ -1,12 +1,10 @@
-# change get string loop?
-# change get quantity
 import re
 
 
 def get_num(m):
     my_integer = input(m)
     length = len(my_integer)
-    if re.match(r"^(64|04|02)", my_integer):
+    if re.match(r"^(64|04|027|021|022|020)", my_integer):
         if length < 9:
             print("Invalid Phone Number")
             return get_phone()
@@ -67,9 +65,9 @@ def get_ad(m):
         user_input = input(m)
         # if address is too long or too short returns input
         if len(user_input) > 50:
-            print("Address is too long")
-        elif len(user_input) < 10:
-            print("Address is too short")
+            print("Invalid Address")
+        elif len(user_input) < 5:
+            print("Invalid Address")
         else:
             return user_input
 
@@ -117,10 +115,9 @@ def menu_pizza(p):
     return
 
 
-def get_customer_details(o, c, d, g):
+def get_customer_details(o, d, g):
     """Presents delivery/pick up options.
     :param o: list
-    :param c: integer
     :param d: list
     :param g: list
     :return: None
@@ -134,12 +131,12 @@ def get_customer_details(o, c, d, g):
         print("-" * 60)
         service = get_string("Select an option =>")
         if service == "D":
-            delivery(o, c, d, g)
+            delivery(o, d, g)
         elif service == "P":
             pick_up(d)
         else:
             print("Unrecognised entry, must be (P) or (D)")
-            return get_customer_details(o, c, d, g)
+            return get_customer_details(o, d, g)
     # if customer details are already filled, shows details
     else:
         print("Current Customer details:")
@@ -156,7 +153,7 @@ def get_customer_details(o, c, d, g):
                 d.clear()
                 # g is extras (delivery cost)
                 g.clear()
-                return get_customer_details(o, c, d, g)
+                return get_customer_details(o, d, g)
             elif ask == "N":
                 return None
             else:
@@ -200,14 +197,14 @@ def pick_up(d):
             continue
 
 
-def delivery(o, c, d, g):
+def delivery(o, d, g):
     """Get customer details for delivery option.
     :param o: list
-    :param c: integer
     :param d: list
     :param g: list
     :return: None
     """
+
     # asks user if they are OK with delivery fee, if not returns to main menu
     ask = get_string("Delivery fee of $3 will be charged, (Y) or (N)")
     if ask == "Y":
@@ -217,7 +214,9 @@ def delivery(o, c, d, g):
         # adds customer details to list
         order_choice = get_name("What is your name?")
         order_num = get_phone()
-        address = get_ad("What is your address?")
+        ad_num = get_integer("What is your Street Number?", 0, 9999)
+        ad_name = get_ad("What is your Street Name?")
+        address = "{} {}".format(ad_num, ad_name)
         list_1 = ["Name", order_choice]
         list_2 = ["Number", order_num]
         list_3 = ["Address", address]
@@ -246,20 +245,22 @@ def delivery(o, c, d, g):
                 print("Unrecognizable entry, please select (Y) or (N)")
                 continue
     elif ask == "N":
-        return get_customer_details(o, c, d, g)
+        return get_customer_details(o, d, g)
     else:
         # repeats error message until user selects valid entry
         print("Unrecognisable entry, must be (Y) or (N)")
-        return delivery(o, c, d, g)
+        return delivery(o, d, g)
 
 
-def new_pizza(t, c, p):
+def new_pizza(t, p):
     """Add a new pizza to the order.
     :param t: list
-    :param c: integer
     :param p: list
     :return: None
     """
+
+    c = 0
+
     # prints pizza menu with indexes
     for i in range(0, len(p)):
         output = "{:<2} {:<12} {:>8}{:.2f}".format(i, p[i][0], "$", p[i][1])
@@ -288,23 +289,23 @@ def new_pizza(t, c, p):
             return
         elif quantity == 0:
             print("Please enter a number more than 0")
-            return new_pizza(t, c, p)
+            return new_pizza(t, p)
     else:
         # you already have x  cheese pizzas ordered you can add y more
         output = "You have {} {} pizzas in the order already".format(t[checked_name][1], t[checked_name][0])
         print(output)
-        add_pizza(t, c)
+        add_pizza(t)
         return None
 
 
-def edit_order(t, c, e):
+def edit_order(t, e):
     """Presents editing order option menu.
     :param t: list
-    :param c: integer
     :param e: list
     :return: None
     """
     # only allows function to run if the order list is not empty
+
     if len(t):
         # prints options for editing order (add pizza, remove pizza)
         for x in e:
@@ -313,29 +314,32 @@ def edit_order(t, c, e):
         print("-" * 60)
         order_choice = get_string("Please select an option =>")
         if order_choice == "A":
-            add_pizza(t, c)
+            add_pizza(t)
             return
         elif order_choice == "R":
-            remove_pizza(t, c)
+            remove_pizza(t)
             return
         else:
             print("Unrecognisable entry, enter A or R")
-            return edit_order(t, c, e)
+            return edit_order(t, e)
     else:
         # prints a message if order list is empty
         print("Please add a pizza to the order first")
         print("-" * 60)
 
 
-def add_pizza(t, c):
+def add_pizza(t):
     """Allows user to add a pizza to an existing option in the order list.
     :param t: list
-    :param c: integer
     :return: None
     """
     # print list with indices
+
+    c = 0
+    headings = "{} {:>16}".format("Pizza", "Qty")
+    print(headings)
     for i in range(0, len(t)):
-        output = "{:<2} {:<12} {:>8}{}".format(i, t[i][0], "#", t[i][1])
+        output = "{:<2} {:<12} {:>4}{}".format(i, t[i][0], "x", t[i][1])
         print(output)
     # asks user what pizza they want and the quantity
     choice = get_integer("Please choose a menu item number =>", 0, len(t) - 1)
@@ -355,21 +359,24 @@ def add_pizza(t, c):
             # minuses pizzas if the amount of pizzas is more than 5
             t[choice][1] -= quantity
             print("Maximum amount of pizzas you can order is 5")
-            return add_pizza(t, c)
+            return add_pizza(t)
     else:
         print("Maximum amount of pizzas you can order is 5")
         return None
 
 
-def remove_pizza(t, c):
+def remove_pizza(t):
     """Allows user to remove/delete pizzas from order.
     :param t: list
-    :param c: integer
     :return: None
     """
     # prints customer order with indexes
+
+    c = 0
+    headings = "{} {:>16}".format("Pizza", "Qty")
+    print(headings)
     for i in range(0, len(t)):
-        output = "{:<2} {:<12} {:>8}{}".format(i, t[i][0], "#", t[i][1])
+        output = "{:<2} {:<12} {:>4}{}".format(i, t[i][0], "x", t[i][1])
         print(output)
 
     choice = get_integer("Please choose a menu item number => ", 0, len(t)-1)
@@ -392,7 +399,7 @@ def remove_pizza(t, c):
             return None
     else:
         print("Please enter a number on the menu")
-        return remove_pizza(t, c)
+        return remove_pizza(t)
 
 
 def delete_order(t, d, g):
@@ -428,25 +435,29 @@ def delete_order(t, d, g):
         return None
 
 
-def review_order(t, c, d, g):
+def review_order(t, d, g):
     """Shows user the order, lets the confirm, cancel or delete order.
     :param t: list
-    :param c: integer
     :param d: list
     :param g: list
     :return: None
     """
     # only allows user to review order if order list is filled
+
+    c = 0
+
     if len(t):
         # prints order list with indexes
+        headings = "{:<2} {:>9} {:>13}".format("Qty", "Pizza", "Cost")
+        print(headings)
         for i in range(0, len(t)):
-            output = "{:<2} {:<12} {:>8}{:.2f}".format(t[i][1], t[i][0], "$", t[i][2])
+            output = "{}{:<6} {:<12} {:>3}{:.2f}".format("x", t[i][1], t[i][0], "$", t[i][2])
             print(output)
             # multiplies cost by quantity
             c += t[i][1] * t[i][2]
         # prints extras list with indexes
         for i in range(0, len(g)):
-            output = "{:<2} {:<12} {:>8}{:.2f}".format(g[i][1], g[i][0], "$", g[i][2])
+            output = "{}{:<7} {:<12} {:>3}{:.2f}".format("x", g[i][1], g[i][0], "$", g[i][2])
             print(output)
             # multiplies cost by quantity
             c += g[i][1] * g[i][2]
@@ -457,15 +468,15 @@ def review_order(t, c, d, g):
         if len(d):
             cont = True
             while cont:
-                confirm = get_string("Finalise order: (Y) or (N), (C) to cancel")
+                confirm = get_string("Finalise order: (F) or (N), (C) to cancel")
                 # if user chooses to confirm, prints customer details
-                if confirm == "Y":
+                if confirm == "F":
                     print("⭒" * 53)
                     for i in range(0, len(t)):
-                        output = "{:<2} {:<12} {:>8}{:.2f}".format(t[i][1], t[i][0], "$", t[i][2])
+                        output = "{}{:<2} {:<12} {:>8}{:.2f}".format("x", t[i][1], t[i][0], "$", t[i][2])
                         print(output)
                     for i in range(0, len(g)):
-                        output = "{:<2} {:<12} {:>8}{:.2f}".format(g[i][1], g[i][0], "$", g[i][2])
+                        output = "{}{:<2} {:<12} {:>8}{:.2f}".format("x", g[i][1], g[i][0], "$", g[i][2])
                         print(output)
                     print("Total cost:   {:>10}{:.2f}".format("$", c))
                     print("-" * 60)
@@ -504,7 +515,7 @@ def review_order(t, c, d, g):
                 elif confirm == "N":
                     return
                 else:
-                    print("Unrecognisable entry, must be (Y), (C) or (N)")
+                    print("Unrecognisable entry, must be (F), (N) or (C)")
                     continue
         else:
             print("Please fill in customer details")
@@ -521,8 +532,6 @@ def main():
     :return: None
     """
     customer_list = []
-
-    cost = 0
 
     pizza_list = [
         ["Cheese", 18.50],
@@ -574,13 +583,13 @@ def main():
         if order_choice == "M":
             menu_pizza(pizza_list)
         elif order_choice == "G":
-            get_customer_details(option_list, cost, customer_details, extras)
+            get_customer_details(option_list, customer_details, extras)
         elif order_choice == "N":
-            new_pizza(customer_list, cost, pizza_list)
+            new_pizza(customer_list, pizza_list)
         elif order_choice == "E":
-            edit_order(customer_list, cost, edit_list)
+            edit_order(customer_list, edit_list)
         elif order_choice == "R":
-            review_order(customer_list, cost, customer_details, extras)
+            review_order(customer_list, customer_details, extras)
         elif order_choice == "D":
             delete_order(customer_list, customer_details, extras)
         elif order_choice == "Q":
