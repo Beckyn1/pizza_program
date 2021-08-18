@@ -1,7 +1,19 @@
+"""This is a pizza order program.
+
+It  stores customer information for the customer who
+ordered the pizza and allows the customer to order
+pizzas off a menu.
+"""
+
 import re
 
 
 def get_num(m):
+    """
+
+    :param m: string
+    :return:
+    """
     my_integer = input(m)
     length = len(my_integer)
     if re.match(r"^(64|04|027|021|022|020)", my_integer):
@@ -27,7 +39,16 @@ def get_phone():
 
 
 def get_integer(m, min_, max_):
-    """Integer validation function."""
+    """Integer validation function.
+
+    This function validates integer input in the program and rejects
+    anything that does not meet the requirements.
+
+    :param m: integer
+    :param min_: integer
+    :param max_: integer
+    :return:
+    """
     # sets minimum and maximum amount of integers
     get_user_integer = True
     while get_user_integer:
@@ -48,7 +69,12 @@ def get_integer(m, min_, max_):
 
 
 def get_string(m):
-    """String validation function."""
+    """String validation function.
+
+    This function validates str
+    :param m:
+    :return:
+    """
     cont = True
     while cont:
         user_input = input(m)
@@ -289,7 +315,8 @@ def new_pizza(t, p):
             return
         elif quantity == 0:
             print("Please enter a number more than 0")
-            return new_pizza(t, p)
+            new_pizza(t, p)
+            return None
     else:
         # you already have x  cheese pizzas ordered you can add y more
         output = "You have {} {} pizzas in the order already".format(t[checked_name][1], t[checked_name][0])

@@ -102,7 +102,8 @@ choose to finalise their order and it takes them to another part which shows the
 <h2>Testing</h2>
 
 <h3>This was my first design of the program with the add and remove function. It didn't work how I wanted it
-to and the code was too repetitive so I ended up changing it.</h3>
+to and the code was not suitable for further improvements in later sprints. The new functions (add and remove pizza
+stayed the same but I changed the main function.</h3>
 <img class="img-responsive" src="assets/img/s_2d1_1.jpg">
 <img class="img-responsive" src="assets/img/s_2d1_2.jpg">
 <img class="img-responsive" src="assets/img/s_2d1_3.jpg">
@@ -120,34 +121,32 @@ For a future sprint, I am going to make it so that the program only allows the u
 	functions in my next sprint, so that the program asks for the address and phone number when the user chooses the pick up option. In
 	the order function, it has a menu which asks the user if they want to add pizza quantity to the order, remove from the pizza quantity
 	or quit. If the user chooses to add to the pizza quantity, it redirects them to the add_pizza function. The add_pizza function prints
-	out the menu and then asks the user what pizza they want to add. Currently the user has to select the item menu number but for the future
-	I want to look into changing this so that they can select the menu number or the word version (eg. cheese pizza instead of 0). The function
-	then adds to the pizza quantity depending on the amount the user selects and updates the cost. If then asks the user if they want to
-	add another pizza and if they do, the add_pizza function runs again, if they don't the program returns to the order menu, where the user
+	out the menu and then asks the user what pizza they want to add. The function then adds to the pizza quantity depending on the amount
+	the user selects and updates the cost. If then asks the user if they want to add another pizza and if they do, the add_pizza function runs again, if they don't the program returns to the order menu, where the user
 	can then choose to add another pizza again, remove pizzas or quit. The remove pizza function allows user to select a pizza type from the
 	list and choose the quantity of pizza that they want to remove. However, an issue I have with this is that the user is able to go into
 	negative quantities. I want to make the program to only allow the user to reduce the amount that is present and I will likely fix this in my
-	next sprint or when I do validation. Another issue with the remove function is how it subtracts from the cost. I want the program to eventually
-	add to a total cost as a customer orders more pizza and then have the cost removed from the total amount instead of just saying - $10 as it
-	currently does. I will likely fix this when I reach sprint 4 however. Another issue that I need to fix is my messages and formatting. Some
-	of the messages and formatting are hard to read and are confusing. I will fix this in my final sprint or when I do validation however.
-</p>
+	next sprint or when I do validation.
 <br>
 <p>
 	While I was creating sprint 2 of the program I had to run quite a few tests as I had issues when I was designing the order function.
 	As I said before, I split the main function into the main function and an order function. One of the reasons I did this was because
-	I had a lot of repetition in my delivery and pick up functions. In my old design, they had the order code but kept inside delivery
-	and pick up functions (basically the order function was displayed twice). As they both do the same thing for the main part of the pizza
+	I had a lot of repetition in my delivery and pick up functions. As they both do the same thing for the main part of the pizza
 	program (which was what I was designing in sprint 2), it made sense to make an order function and then redirect the delivery and pick up
-	function to it. I also decided to do this because for my quit option in the add and remove functions, it needed somewhere to redirect to
+	function to it. I also decided to do this for my quit option in the add and remove functions, it needed somewhere to redirect to
 	after the user was done and I didn't want it repeating the delivery or pick up messages and I also didn't want it to redirect to the main menu.
 	Then, I had an issue with the quitting option in the order function. First, instead of stopping the program, it would redirect to the start
 	of the order function. Then, I changed something and it would redirect to the main menu and the user would have to press quit again for the
 	program to stop. This design was unconventional and I had to run some tests to figure out where to put/remove loops and I figured out how to
 	allow the program to quit at the order function.
 
-	I think the order design is quite good now however, as it is easy to update and add new functions to. When I come to making a confirmation
-	or review function that prints out the full order it should be quite a simple process.
+</p>
+<p>
+	For my next sprint, I want to add a function that allows the user to add new pizza types to the menu list. I also want to add a function
+	that allows users to delete a pizza from the menu/order. As well as this, I plan on adding a review/confirm function where the user can
+	see their order and confirm it. After they confirm their order a new order should start. I also want to add a function that just prints out
+	the menu.
+
 </p>
 
 <h2>Git push</h2>
@@ -167,8 +166,8 @@ For a future sprint, I am going to make it so that the program only allows the u
 	I couldn't print out the customer's order without printing out all of the pizza list options (so it would print pizza options
 	where the quantity was 0 as well as pizza options that had a quantity more than 0). Visually, this was not appealing and it didn't
 	make sense as a program to print out what the user had not ordered. So, I decided to instead use a list to store the pizza menu
-	options, an empty list to store customer order details and the total cost is stored in a separate value.
-	In the empty customer order list, it allowed me to add what the user ordered and the list kept building as they ordered more or less.
+	options, an empty list to store customer order details.
+	In the empty customer order list, it allowed me to add what the user ordered and the list kept updating as they ordered more or less.
 	As the list only contained what the user ordered, it meant that I was able to only print what they ordered in the review function.
 
 	I also removed the order function. The order function was excessive and unnecessary as I could include everything in the order function
@@ -179,7 +178,7 @@ For a future sprint, I am going to make it so that the program only allows the u
 	or if they want to continue adding more items to the order. It also prints out the customer details. I will update this in my next version
 	to make the review function more thorough, however. I want to rearrange the format so that the information given is clearer.
 
-	I also changed the base structure slightly so that the program runs more smoothly. I now have the delivery/pick up
+	I also changed the order of operations slightly so that the program runs more smoothly. I now have the delivery/pick up
 	function as an option in the menu instead of starting the program with the deliver/pick up option. I am also going to have the program not start
 	with adding a new pizza immediately and instead give the user a menu of options. To make sure the order only goes through if a pizza is added
 	to the order, I am going to validate my program so that the review function cannot be called if nothing has been added to the order. I will
