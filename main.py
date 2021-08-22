@@ -651,7 +651,9 @@ def review_order(t, d, g):
                         t.clear()
                         d.clear()
                         g.clear()
-                        return
+                        print("---------------------🍕Starting Order🍕"
+                              "---------------------")
+                        return None
                     elif confirm == "N":
                         return None
                     else:
