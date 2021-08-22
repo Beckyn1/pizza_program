@@ -43,7 +43,8 @@ def get_phone():
 
     :return: phone
     """
-    phone = get_num("What is your phone number?")
+    phone = get_num("Please enter customer phone "
+                    "number, only NZ mobile or Wellington land-line accepted")
     return phone
 
 
@@ -93,10 +94,6 @@ def get_string(m):
         # allows program to accept upper and lower cases
         user_input = user_input.upper()
         user_input = user_input.strip()
-        if len(user_input) > 100:
-            print("Value entered is too long")
-        else:
-            return user_input
         return user_input
 
 
@@ -158,6 +155,17 @@ def check_name_present(t, n):
         if t[i][0] == n:
             return i
     return -1
+
+
+def get_note(m):
+    cont = True
+    while cont:
+        user_input = input(m)
+        if len(user_input) > 150:
+            print("Please enter a shorter message")
+        else:
+            return user_input
+        return user_input
 
 
 def menu_pizza(p):
@@ -240,7 +248,7 @@ def pick_up(d):
     :return: None
     """
     # asks for customer's name and phone number
-    order_choice = get_name("What is your name?")
+    order_choice = get_name("Please enter customer name")
     order_num = get_phone()
     # adds customer details to list
     list_1 = ["Name", order_choice]
@@ -290,10 +298,10 @@ def delivery(o, d, g):
         extra_list = ["Extras", 1, 3]
         g.append(extra_list)
         # adds customer details to list
-        order_choice = get_name("What is your name?")
+        order_choice = get_name("Please enter customer name")
         order_num = get_phone()
-        ad_num = get_integer("What is your Street Number?", 0, 9999)
-        ad_name = get_ad("What is your Street Name?")
+        ad_num = get_integer("Please enter Street number", 0, 9999)
+        ad_name = get_ad("Please enter Street name")
         address = "{} {}".format(ad_num, ad_name)
         list_1 = ["Name", order_choice]
         list_2 = ["Phone Number", order_num]
@@ -554,6 +562,8 @@ def review_order(t, d, g):
     :return: None
     """
     c = 0
+    extra_notes = []
+
     # only allows user to review order if order list is filled
     if len(t):
         # prints order list with indexes
@@ -579,65 +589,74 @@ def review_order(t, d, g):
         if len(d):
             cont = True
             while cont:
-                confirm = get_string("Finalise order: (Y) "
-                                     "or (N) or (C)ancel order")
-                ask = get_string("Any extra notes to add to order?")
-                # if user chooses to finalise order, prints customer details
-                if confirm == "Y":
-                    print("⭒" * 53)
-                    for i in range(0, len(t)):
-                        output = "{}{:<6} {:<12} {:>3}{:.2f}" \
-                            .format("x", t[i][1], t[i][0], "$", t[i][2])
-                        print(output)
-                    for i in range(0, len(g)):
-                        output = "{}{:<6} {:<12} {:>3}{:.2f}" \
-                            .format("x", g[i][1], g[i][0], "$", g[i][2])
-                        print(output)
-                    print("Total cost:   {:>10}{:.2f}".format("$", c))
-                    print("-" * 60)
-                    print("Customer Details")
-                    print("-" * 60)
-                    for i in range(0, len(d)):
-                        output = "{:<13}: {}".format(d[i][0], d[i][1])
-                        print(output)
-                    print("-" * 60)
-                    print(ask)
-                    print("⭒" * 53)
-                    run = True
-                    while run:
-                        ask = get_string("Would you like to "
-                                         "confirm your order, (Y) or (N)")
-                        if ask == "Y":
-                            print("-" * 60)
-                            print("Order Complete")
-                            print("-" * 60)
-                            print("Thank you for ordering "
-                                  "with Papa's Pizzeria!")
-                            print("---------------------🍕Starting Order🍕"
-                                  "---------------------")
-                            # clears all information stored in lists
-                            t.clear()
-                            d.clear()
-                            g.clear()
-                            return None
-                        elif ask == "N":
-                            return None
-                        else:
-                            print("Unrecognisable entry, must be (Y) or (N)")
-                            cont = False
-                            continue
-                elif confirm == "C":
-                    print("Order is cancelled")
-                    # clears all information stored in lists
-                    t.clear()
-                    d.clear()
-                    g.clear()
-                    return
-                elif confirm == "N":
-                    return None
+                ask = get_string("Any extra notes to add to order (Y) or (N)")
+                if ask == "Y":
+                    ext_note = get_note("Please enter the note:")
+                    extra_notes.append(ext_note)
+                elif ask == "N":
+                    cont = True
                 else:
-                    print("Unrecognisable entry, must be (Y), (N) or (C)")
+                    print("Unrecognisable entry, select (Y) or (N)")
                     continue
+                final_cont = True
+                while final_cont:
+                    confirm = get_string("Finalise order: (Y) "
+                                         "or (N) or (C)ancel order")
+                    if confirm == "Y":
+                        print("⭒" * 53)
+                        for i in range(0, len(t)):
+                            output = "{}{:<6} {:<12} {:>3}{:.2f}" \
+                                .format("x", t[i][1], t[i][0], "$", t[i][2])
+                            print(output)
+                        for i in range(0, len(g)):
+                            output = "{}{:<6} {:<12} {:>3}{:.2f}" \
+                                .format("x", g[i][1], g[i][0], "$", g[i][2])
+                            print(output)
+                        print("Total cost:   {:>10}{:.2f}".format("$", c))
+                        print("-" * 60)
+                        print("Customer Details")
+                        print("-" * 60)
+                        for i in range(0, len(d)):
+                            output = "{:<13}: {}".format(d[i][0], d[i][1])
+                            print(output)
+                        print("-" * 60)
+                        if len(extra_notes):
+                            print("Extra Note:")
+                            for x in extra_notes:
+                                print(x)
+                        print("⭒" * 53)
+                        run = True
+                        while run:
+                            ask = get_string("Would you like to "
+                                             "confirm the order, (Y) or (N)")
+                            if ask == "Y":
+                                print("-" * 60)
+                                print("Order Complete")
+                                print("---------------------🍕Starting Order🍕"
+                                      "---------------------")
+                                # clears all information stored in lists
+                                t.clear()
+                                d.clear()
+                                g.clear()
+                                return None
+                            elif ask == "N":
+                                return None
+                            else:
+                                print("Unrecognisable entry, must be (Y) or (N)")
+                                cont = False
+                                continue
+                    elif confirm == "C":
+                        print("Order is cancelled")
+                        # clears all information stored in lists
+                        t.clear()
+                        d.clear()
+                        g.clear()
+                        return
+                    elif confirm == "N":
+                        return None
+                    else:
+                        print("Unrecognisable entry, must be (Y), (N) or (C)")
+                        continue
         else:
             print("Please fill in customer details")
             print("-" * 60)
