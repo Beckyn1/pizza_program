@@ -43,8 +43,8 @@ def get_phone():
 
     :return: phone
     """
-    phone = get_num("Please enter customer phone "
-                    "number, only NZ mobile or Wellington land-line accepted")
+    phone = get_num("Please enter a phone number, only NZ "
+                    "mobile or Wellington land-line accepted")
     return phone
 
 
@@ -589,9 +589,11 @@ def review_order(t, d, g):
         if len(d):
             cont = True
             while cont:
+                # asks if customer wants to add any extra notes
                 ask = get_string("Any extra notes to add to order (Y) or (N)")
                 if ask == "Y":
                     ext_note = get_note("Please enter the note:")
+                    # adds note to list
                     extra_notes.append(ext_note)
                 elif ask == "N":
                     cont = True
@@ -600,9 +602,11 @@ def review_order(t, d, g):
                     continue
                 final_cont = True
                 while final_cont:
+                    # if user chooses to finalise order, prints order out
                     confirm = get_string("Finalise order: (Y) "
                                          "or (N) or (C)ancel order")
                     if confirm == "Y":
+                        # prints order and order details
                         print("⭒" * 53)
                         for i in range(0, len(t)):
                             output = "{}{:<6} {:<12} {:>3}{:.2f}" \
@@ -620,6 +624,7 @@ def review_order(t, d, g):
                             output = "{:<13}: {}".format(d[i][0], d[i][1])
                             print(output)
                         print("-" * 60)
+                        # if extra notes list is filled, prints extra note
                         if len(extra_notes):
                             print("Extra Note:")
                             for x in extra_notes:
@@ -627,6 +632,7 @@ def review_order(t, d, g):
                         print("⭒" * 53)
                         run = True
                         while run:
+                            # if user confirms, order is completed and a new order starts
                             ask = get_string("Would you like to "
                                              "confirm the order, (Y) or (N)")
                             if ask == "Y":
@@ -642,8 +648,8 @@ def review_order(t, d, g):
                             elif ask == "N":
                                 return None
                             else:
-                                print("Unrecognisable entry, must be (Y) or (N)")
-                                cont = False
+                                print("Unrecognisable entry, "
+                                      "must be (Y) or (N)")
                                 continue
                     elif confirm == "C":
                         print("Order is cancelled")
@@ -741,7 +747,7 @@ def main():
         elif order_choice == "D":
             delete_order(customer_list, customer_details, extras)
         elif order_choice == "Q":
-            print("Thank you for choosing Papa's Pizzeria!")
+            print("Program Exited")
             return None
         else:
             print("Unrecognised entry must be option in menu list")

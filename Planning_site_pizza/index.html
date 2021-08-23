@@ -563,14 +563,18 @@ because I did not have proper docstrings in my functions and my code
 <p>
 Sprint 4 was my final sprint and overall I am satisfied with how it turned out. I had a bit of trouble with the validation
 	functions as there was a lot of content that I was not familiar with and required a bit of research, but overall
-	I think it works well. As far as I am concerned, my program does not crash and every time a value that is entered
+	I think it works well. In this sprint I added my validation functions and made a few adjustments to the program structure.
+	I validated for string input, integer input, phone number input and if the pizza name is already in the list. I also
+	made an "edit order" function that combines the add, remove and delete pizza functions.
+
+	As far as I am concerned, my program does not crash and every time a value that is entered
 	that does not meet my requirements, the program asks the user to re-enter until they enter a valid value.
 </p>
 				<p>In this sprint I also did a lot of formatting fixes. I made the program a lot easier
 				to read by spacing out different items and by separating different sections with lines. I also
 				added some extra confirmation steps such as finalising the order, then confirming the order
 				in my review function, to make sure the user was content with the details entered.</p>
-				<p>Although it was not in my original plan, I decided to add in a "extra notes" feature
+				<p>Although it was not in my original plan, I also decided to add in a "extra notes" feature
 				to my program. The reason I decided to add this was because for my delivery function,
 				I asked for the st number and name. I did this to try and make sure only valid st addresses
 				were accepted. However, while I was trialling my program on my family members, one of them
@@ -607,51 +611,92 @@ me to stay on track and helped to remind me of what needed to get done. The boar
 also allowed me to write down new ideas for the program as I progressed, so you can
 	see I added some slightly less doable actions such as creating a mobile app.</p>
 <img class="img-responsive" src="assets/img/s_4_backlog.jpg" width="70%" align="centre">
-<p>This is what my project backlog looked like near the completion stages ofmy project.</p>
+<p>This is what my project backlog looked like near the completion stages of my project.</p>
 <hr>
 
 <h1> Relevant Implications Summary</h1>
 
 <p>
-Future proofing
-	describe
-	- define what we mean
-	- easy to update
-	- easy to add new features
-		address
-		- function based build
-		- each feature is run from a function
-		- any new feature could be created with a new function and a new menu option added
-	- easy for another developer to work on and improve.
-		- comments, doctyping, program starts with main function, easy for a new developer to see how the program works and
-	make changes.
+				<h4>Future proofing</h4>
+	Future proofing is where you design your program to be easily updatable in the future. This means that the program
+	is easy to add new features to and changes to different parts of the program are easy to change.
+	<p>In my program I have addressed future proofing by using a function based build. Each of the different
+				features in my program have a different function. So, for example I have a function
+				specifically for adding pizzas to the order as well as a function specifically for removing pizzas. By
+				using different functions for different features, I am able to update and make changes to a function without
+				"upsetting" the rest of the program. This means that if something goes wrong with a function, it is unlikely
+				to disrupt the entire program. It also means it is easier for me to fix errors as I can target the error to
+				a function, take the function out of the main program and make tests with it, without disrupting the main program.
+			</p>
+				<p>My program is also easy for another developer to work on and improve. My code is well commented and
+					has docstrings at the top of every function. The docstrings have a description of what the function
+					does and they also say what the parameters refer to in the program. This makes it easier for the developer
+					to see what each function does. As my program starts with the main function, it also makes it easy
+					for a developer to see how my program works and make changes.
+				</p>
+
+				<p>I also used a python 3 code checker to see if my code followed the main code conventions. The code checker
+				told me how to write proper docstrings, proper formatting for my program and it also told me when I had lines
+				of code which were too long. The code checker brought up a good point about line length being too long.
+				It said that lines of code longer than 79 characters should be shortened or distributed
+				across multiple lines. The reason they suggested this was because shorter
+				means the lines of code are likely to be less complicated and easier to understand by other people. They also
+				mentioned that it is also easier to work using files side by side with shorter lines of code. As well as this,
+				they also said that shorter lines of code work well for code review tools that show the information
+				in two side by side columns.</p>
 
 
-Functionality
-	describe
-	- define what we mean
-	- does not crash
-	- total gets added properly, pizzas are added properly
-		- tested regularly, systematically after each sprint
-		- role play tests/other people use
-
-Usability
-	describe
-	- define what we mean
-	- is the program easy to use
-	- gives informative user feedback
-	- communicates if user made an error
-	- fixes error on its own
-		- upper and lower or ignoring spaces
-	- uses consistent navigation system
-		- predictable, easy to learn how to use
-		- easy to return user to main menu
-		- exit out at any time
-	- give feedback when task is done
-		- eg 5 pizzas have been added
+				<h4>Functionality</h4>
+				<p>
+Functionality is making sure the program works well and runs smoothly. This means that the program does not crash, totals get
+				added properly and pizzas are added properly.
+				</p>
+				<p>
+				In my program, I have addressed functionality by systematically testing my program after each sprint, as
+					well as regularly testing my program throughout the addition of a new feature. As I have thoroughly
+					tested my program, I have been able to spot most (if not all) errors and fixed them so that the program
+					runs smoothly. As far as I am concerned, my program does not crash, so the user should not have any
+					serious issues whilst using the program.
 </p>
+				<p>
+					Through thorough testing as well, I have made sure that the total cost and quantity of pizzas adds
+					up to the correct amount throughout the program. I calculate the total cost and total quantity individually
+					through each function, instead of having a running total throughout. Each cost and quantity is also printed out
+					as well as the total cost. By doing this, it is clear to see where an error may be in calculations while I
+					was testing my program, so any errors were easy to fix. The quantity of pizzas is a value that gets updated
+					throughout the program, however I have tested this regularly throughout all my sprints to make sure that the
+					correct amount is removed or added to.
+				</p>
+				<p>
+					As well as my personal testing, I have also had multiple other people test my program, some with digital
+					technologies experience and some with none. By testing my program with people who had digital technologies
+					knowledge, it helped me to spot and fix technical errors with my program that I may have not noticed. Testing
+					my program with people that were not knowledgeable with digital technologies was also helpful as they told me
+					what parts of the program were easy to understand and what parts were slightly confusing. An example is
+					where my friend told me that the integer error message was confusing so I changed it to make it more understandable.
+				</p>
+<p>
+	</p>
 
-			
+
+				<h4>Usability</h4>
+	<p>Usability is where the program is easy to use for the user. This means tha the program gives
+	informative feedback, communicates if the user made an error and if applicable, fixes the error
+	on its own.</p>
+	<p>In my program I have given informative user feedback through the use of messages that appear after
+	a function has completed its task. An example of this is how I have a message telling the user how
+	many pizzas were added in my adding pizza function before the user returns to the main menu. </p>
+	<p>I also have error messages every time the user enters a value that is not accepted by the program.
+	When the user enters a wrong value, a brief message stating what the user needs to input appears until
+	they enter an acceptable value.</p>
+	<p>For input where the user has to enter (Y) or (N) etc I also have validated so that the program accepts
+	both upper and lower case letters as it can be frustrating having to type in upper case for the whole program.
+	Another self fix is how the program ignores spaces if they are typed before the letter when the user enters a menu
+	letter or a (Y)/(N) entry.</p>
+<p>My program also uses a consistent navigation system. It is similarly designed to common shopping programs that people
+use daily, it is very predictable and easy to learn how to use. The user is also able to return to the main menu easily
+if they get lost and once they are at the main menu they can quit at any time.</p>
+
 			</div>
 			<div class="footer">
 				&copy; BN Copyright 2021
