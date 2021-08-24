@@ -154,6 +154,7 @@ and add a pizza to the order.</p>
 <img class="img-responsive" src="assets/img/s_2d2_4.jpg">
 </div>
 </div>
+				<br>
 <p>Here is a standard run through of the final version of sprint 2.</p>
 
 <h2>Testing</h2>
@@ -252,6 +253,8 @@ For a future sprint, I am going to make it so that the program only allows the u
 	improve the pick up/delivery functions.</p>
 <h2>Sprint board 2 in progress</h2>
 <img class="img-responsive" src="assets/img/s3_kb.jpg" width="100%">
+<br>
+<br>
 <div class="row">
 <div class="column2">
 <h3>Plan for first version of sprint 3</h3>
@@ -260,11 +263,9 @@ For a future sprint, I am going to make it so that the program only allows the u
 <div class="column2">
 <h3>Order function plan</h3>
 <img class="img-responsive" src="assets/img/s_3_d2_1.jpg" width="60%">
-
 </div>
 </div>
-<br>
-<br>
+<hr>
 <h3>Plan for second version of sprint 3</h3>
 <div class="row">
 <div class="column2">
@@ -274,12 +275,13 @@ For a future sprint, I am going to make it so that the program only allows the u
 <img class="img-responsive" src="assets/img/s_3plan_3.jpg">
 </div>
 </div>
-
+<br>
 <h2>Testing</h2>
 <div class="row">
 <div class="column2">
 <h4>Delivery cost issue</h4>
 <img class="img-responsive" src="assets/img/s_3d2_2.jpg">
+	<br>
 <p>In my program, I calculate the total cost individually (so that there is
 not a total cost that is constantly updated in the program). As a result of this,
 I have to calculate the cost by multiplying the quantity by cost. So, for the delivery
@@ -295,6 +297,8 @@ in the extras list in the future.</p>
 <div class="column2">
 <h3>Maximum and Minimum Pizzas</h3>
 <img class="img-responsive" src="assets/img/s_3d2_3.jpg">
+	<br>
+	<br>
 <p>This test shows that in sprint 3, the customer can order 50 pizzas
 	as well as remove 100 pizzas. The cost also goes into negatives.
 	For my next sprint, I will need to address this issue and set
@@ -310,6 +314,7 @@ in the extras list in the future.</p>
 <div class="column2">
 <h3>Empty list issues</h3>
 <img class="img-responsive" src="assets/img/s_3d2_4.jpg">
+	<br>
 <p>In the test above, it shows how I was able to select
 the add pizza option and then was able to enter a value
 even though there were no pizzas in the order. This will
@@ -320,6 +325,7 @@ user can only add a pizza if the order list is not empty.</p>
 <div class="column2">
 <h3>String entered instead of integer</h3>
 <img class="img-responsive" src="assets/img/s_3d2_5.jpg">
+	<br>
 <p>In my program, every time a string value is entered
 when an integer value is supposed to be entered, the program
 crashes. This will be an issue I have to fix when I do validation
@@ -331,6 +337,7 @@ in the next sprint.</p>
 <div class="column2">
 <h3>Repeating pizza in order list</h3>
 <img class="img-responsive" src="assets/img/s_3d2_6.jpg">
+	<br>
 <p>As shown above, there are cheese pizza appears twice, with
 different quantities. I need to validate in my next sprint
 so that if the user enters a pizza that is already present in the
@@ -344,6 +351,7 @@ the purpose of restricting quantities.</p>
 <div class="column2">
 <h3>Order Complete without customer details</h3>
 <img class="img-responsive" src="assets/img/s_3d2_7.jpg">
+	<br>
 <p>In my program, the user is able to complete the order
 	without entering customer details. This is not logical
 	as customer details are necessary for a pizza program.
@@ -356,6 +364,7 @@ the purpose of restricting quantities.</p>
 <div class="column2">
 <h3>Able to complete order with nothing ordered</h3>
 <img class="img-responsive" src="assets/img/s_3d2_8.jpg">
+<br>
 <p>The user is able to confirm and complete the order
 with no pizzas ordered. This is something I need to fix
 in my next sprint, so that the user can only complete an
@@ -365,6 +374,7 @@ order if there is at least 1 pizza and customer details present.</p>
 <div class="column2">
 <h3>Able to complete order with extras list</h3>
 <img class="img-responsive" src="assets/img/s_3d2_9.jpg">
+<br>
 <p>The user is also able to complete the order with
 just the extras list in it, so I think for the next
 sprint I will only allow the confirmation
@@ -378,15 +388,13 @@ are not empty.</p>
 <div class="row">
 <div class="column2">
 <h3>Full run through of final version of Sprint 3</h3>
-<video width="70%" controls>
+<video width="80%" controls>
   <source src="assets/img/s_3.mp4" type="video/mp4">
 </video>
 </div>
 
 <div class="column2">
 <h3>Sprint Review</h3>
-<br>
-<br>
 <br>
 <p>
 	In my 3rd sprint, I decided to do change the base structure of my pizza program. In my previous version, I had the order details
@@ -400,12 +408,14 @@ are not empty.</p>
 	make sense as a program to print out what the user had not ordered. So, I decided to instead use a list to store the pizza menu
 	options, an empty list to store customer order details.
 	</p>
-</div>
-</div>
-<p>
+	<p>
 	In the empty customer order list, it allowed me to add what the user ordered and the list kept updating as they ordered more or less.
 	As the list only contained what the user ordered, it meant that I was able to only print what they ordered in the review function.
 </p>
+</div>
+</div>
+<br>
+
 				<p>With the new program, the new pizza function is used to add pizzas to the order and then the add pizza
 				function allows the user to add to the quantity of pizzas for pizza type that is already in the order list. For my
 					next sprint, I want to combine the add, remove and delete pizza type functions in a menu option called "edit order".
@@ -455,7 +465,7 @@ it is easier to read and to combine the add, remove and delete pizzas options.</
 <img class="img-responsive" src="assets/img/s_4_1_5.jpg" >
 </div>
 </div>
-
+<br>
 <p>This plan was for the validation function for when the user tried to add
 a pizza that was already present in the order list.</p>
 
@@ -549,7 +559,9 @@ and I was not receiving any fatal errors in my code.</p>
 <div class="row">
 <div class="column2">
 <h3>Before</h3>
+
 <img class="img-responsive" src="assets/img/s_4_8.jpg" >
+	<br>
 <p>As you can see, I had a lot of errors in my code. Most were
 because I did not have proper docstrings in my functions and my code
 	was not thoroughly commented. </p>
@@ -558,6 +570,7 @@ because I did not have proper docstrings in my functions and my code
 <div class="column2">
 <h3>After</h3>
 <img class="img-responsive" src="assets/img/s_4_9.jpg" >
+	<br>
 	<p>After making the required changes, my code had no style issues found.
 	I also had no errors from the pycharm code checker as well!</p>
 </div>
