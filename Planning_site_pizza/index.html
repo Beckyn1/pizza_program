@@ -12,6 +12,9 @@
 		<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 		<link rel="shortcut icon" href="favicon.ico">
 <link rel="stylesheet" href="assets/highlight/styles/tomorrow.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@700&family=Raleway&display=swap" rel="stylesheet">
 <script src="assets/highlight/highlight.pack.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
        
@@ -40,10 +43,12 @@
 			
                     
 					<h1>Brief</h1>
+				<p>Aim: to create a program that allows a user to fill in customer details and a customer
+				order for pizzas and print out all of the order details.</p>
 					<hr>
 <h2>Initial project backlog</h2>
 	<img class="img-responsive" src="assets/img/backlog.jpg">
-
+<br>
     <!-- Heading levels -->
     <h1 id="Sprint 1">Sprint 1</h1>
 
@@ -122,7 +127,7 @@
 <h1 id="Sprint 2">Sprint 2</h1>
 <p>Aim: My aim for sprint 2 is to add the option to remove pizzas to the order
 and add a pizza to the order.</p>
-
+<br>
 <div class="row">
 <div class="column2">
 <h2>Plan for first version of sprint 2</h2>
@@ -263,10 +268,10 @@ For a future sprint, I am going to make it so that the program only allows the u
 <h3>Plan for second version of sprint 3</h3>
 <div class="row">
 <div class="column2">
-<img class="img-responsive" src="assets/img/s_3plan_3.jpg">
+<img class="img-responsive" src="assets/img/s_3plan_2.jpg">
 </div>
 <div class="column2">
-<img class="img-responsive" src="assets/img/s_3plan_2.jpg">
+<img class="img-responsive" src="assets/img/s_3plan_3.jpg">
 </div>
 </div>
 
@@ -432,24 +437,33 @@ are not empty.</p>
 	are correct and give the user the option to change the details if they are wrong. I also need to validate the phone number so that
 					the program only accepts phone numbers with a certain length and prefix.
 </p>
-
+<hr>
 <h1 id="Sprint 4">Sprint 4</h1>
 <p>Aim: My aim for this sprint is to validate all inputs so that the program does not crash, format the program so that
 it is easier to read and to combine the add, remove and delete pizzas options.</p>
 
 <h2>Sprint board 4 in progress</h2>
 <img class="img-responsive" src="assets/img/s4_kb.jpg" width="100%">
-<h3>Planning for sprint 4</h3>
-<img class="img-responsive" src="assets/img/s_4_1.jpg" width="60%">
+				<br>
+<h2>Planning for sprint 4</h2>
+<h3>Plan for checking if a name is already in the list</h3>
+<div class="row">
+<div class="column2">
+<img class="img-responsive" src="assets/img/s_4_1.jpg" >
+</div>
+<div class="column2">
+<img class="img-responsive" src="assets/img/s_4_1_5.jpg" >
+</div>
+</div>
+
 <p>This plan was for the validation function for when the user tried to add
 a pizza that was already present in the order list.</p>
 
 <br>
-<br>
-				<h2>Phone Number Validation Planning</h2>
+				<h3>Phone Number Validation Planning</h3>
 <div class="row">
 <div class="column3">
-<h3>Test 1</h3>
+<h4>Test 1</h4>
 <img class="img-responsive" src="assets/img/s_4_2.jpg" >
 <p>
 	In this test, I tried getting the user's input as an integer then
@@ -459,15 +473,14 @@ phone number entered matches the requirements and I also used the
 </p>
 </div>
 
-
 <div class="column3">
-<h3>Test 2</h3>
+<h4>Test 2</h4>
 <img class="img-responsive" src="assets/img/s_4_3.jpg" >
 <p>In this test, I took the input as an integer and used maximum
 and minimum numbers to validate for the length of the phone number.</p>
 </div>
 <div class="column3">
-<h3>Test 3</h3>
+<h4>Test 3</h4>
 <img class="img-responsive" src="assets/img/s_4_4.jpg" width="100%" >
 <p>In this test, I got the input as string but I used regex to check
 if the string consisted of integers only as well as if it started with
@@ -475,7 +488,7 @@ valid prefixes. I also used the length of the string to determine phone
 number length validity.</p>
 </div>
 </div>
-<h2>Validation Table</h2>
+<h3 align="center">Validation Table</h3>
 <img class="img-responsive" src="assets/img/s_4_5.jpg" >
 <br>
 <br>
@@ -525,7 +538,7 @@ up an issue where confirm customer details was asked twice, which I ended up
 fixing. I also changed some of the formatting slightly so that it was easier to read.</p>
 </div>
 </div>
-
+<br>
 <h2>Style Checker</h2>
 <p>I ran my code through a
 Python 3 style checker to see if there were
@@ -553,11 +566,12 @@ because I did not have proper docstrings in my functions and my code
 <div class="row">
 <div class="column2">
 <h3>Full Run through</h3>
-<video width="100%" controls>
+<video width="93%" controls>
   <source src="assets/img/s_4_8.mp4" type="video/mp4">
 </video>
 </div>
-
+<br>
+	<br>
 <div class="column2">
 <h3>Sprint Review</h3>
 <p>
@@ -567,23 +581,24 @@ Sprint 4 was my final sprint and overall I am satisfied with how it turned out. 
 	I validated for string input, integer input, phone number input and if the pizza name is already in the list. I also
 	made an "edit order" function that combines the add, remove and delete pizza functions.
 
-	As far as I am concerned, my program does not crash and every time a value that is entered
+	As far as I am concerned, my program does not crash and the validation functions
+	work how I planned as every time a value that is entered
 	that does not meet my requirements, the program asks the user to re-enter until they enter a valid value.
 </p>
 				<p>In this sprint I also did a lot of formatting fixes. I made the program a lot easier
 				to read by spacing out different items and by separating different sections with lines. I also
 				added some extra confirmation steps such as finalising the order, then confirming the order
 				in my review function, to make sure the user was content with the details entered.</p>
-				<p>Although it was not in my original plan, I also decided to add in a "extra notes" feature
+
+
+</div>
+</div>
+<p>Although it was not in my original plan, I also decided to add in a "extra notes" feature
 				to my program. The reason I decided to add this was because for my delivery function,
 				I asked for the st number and name. I did this to try and make sure only valid st addresses
 				were accepted. However, while I was trialling my program on my family members, one of them
 				asked about apartment deliveries.
 				</p>
-
-</div>
-</div>
-
 <p>
 					So, after getting inspiration from online shopping, I decided
 				to add a feature that asks the user if they have any extra notes to add. This means that the
@@ -593,7 +608,7 @@ Sprint 4 was my final sprint and overall I am satisfied with how it turned out. 
 					enter any extra notes, no extra notes are printed out on the "receipt".
 				</p>
 		<p>Although I was not able to complete it in my timeframe, for a future sprint I could look into
-		making pizzas customisable, so the customer can add extra toppings etc or adding a drinks menu to my program.</p>
+		making pizzas customisable, so the customer can add extra toppings etc or adding a drinks menu to my program. </p>
 
 
 <h3>Github</h3>
@@ -611,7 +626,7 @@ me to stay on track and helped to remind me of what needed to get done. The boar
 also allowed me to write down new ideas for the program as I progressed, so you can
 	see I added some slightly less doable actions such as creating a mobile app.</p>
 <img class="img-responsive" src="assets/img/s_4_backlog.jpg" width="70%" align="centre">
-<p>This is what my project backlog looked like near the completion stages of my project.</p>
+<p align="center">This is what my project backlog looked like near completion.</p>
 <hr>
 
 <h1> Relevant Implications Summary</h1>
@@ -685,7 +700,9 @@ Functionality is making sure the program works well and runs smoothly. This mean
 	on its own.</p>
 	<p>In my program I have given informative user feedback through the use of messages that appear after
 	a function has completed its task. An example of this is how I have a message telling the user how
-	many pizzas were added in my adding pizza function before the user returns to the main menu. </p>
+	many pizzas were added in my adding pizza function before the user returns to the main menu. I have made
+	my messages so that they are not "computer talk" and they are easy for a person without digital technologies knowledge
+		to understand.</p>
 	<p>I also have error messages every time the user enters a value that is not accepted by the program.
 	When the user enters a wrong value, a brief message stating what the user needs to input appears until
 	they enter an acceptable value.</p>

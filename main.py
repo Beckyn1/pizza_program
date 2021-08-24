@@ -1,5 +1,4 @@
 """This is a pizza order program.
-
 It allows the user to add and remove pizzas
 to an order list.
 """
@@ -9,11 +8,9 @@ import re
 
 def get_num(m):
     """Validate phone number input.
-
     This function validates phone number input
     and rejects any invalid and/or phone numbers
     not from New Zealand.
-
     :param m: string
     :return: get_phone()
     """
@@ -38,9 +35,7 @@ def get_num(m):
 
 def get_phone():
     """Get phone number input.
-
     Asks for the customer's phone number.
-
     :return: phone
     """
     phone = get_num("Please enter a phone number, only NZ "
@@ -50,10 +45,8 @@ def get_phone():
 
 def get_integer(m, min_, max_):
     """Validate integer input.
-
     This function validates integer input in the program and rejects
     anything that does not meet the requirements.
-
     :param m: integer
     :param min_: integer
     :param max_: integer
@@ -80,11 +73,9 @@ def get_integer(m, min_, max_):
 
 def get_string(m):
     """Validate string input.
-
     This function validates string input in
     the program so that both upper and lower
     case values can be accepted.
-
     :param m: string
     :return: user_input
     """
@@ -99,11 +90,9 @@ def get_string(m):
 
 def get_ad(m):
     """Validate Address (Street name).
-
     This function validates for address street
     name length. It rejects any values above or
     below max/min lengths.
-
     :param m: string
     :return: user_input
     """
@@ -121,11 +110,9 @@ def get_ad(m):
 
 def get_name(m):
     """Validate customer name.
-
     This function validates customer's name by length
     and rejects the name if the length is longer than the
     max or shorter than the min.
-
     :param m: string
     :return: user_input
     """
@@ -143,10 +130,8 @@ def get_name(m):
 
 def check_name_present(t, n):
     """Pizza already in list validation.
-
     This function checks if a pizza
     name is already in the pizza order list.
-
     :param t: order list
     :param n: pizza name
     :return: new pizza function
@@ -170,9 +155,7 @@ def get_note(m):
 
 def menu_pizza(p):
     """Pizza menu function.
-
     Prints out the pizza menu with indices.
-
     :param p: list
     :return: None
     """
@@ -189,11 +172,9 @@ def menu_pizza(p):
 
 def get_customer_details(o, d, g):
     """Presents delivery/pick up options.
-
     This function asks the user if they
     want pick up, delivery or if they
     want to overwrite customer details.
-
     :param o: option list
     :param d: customer details list
     :param g: extras list
@@ -240,10 +221,8 @@ def get_customer_details(o, d, g):
 
 def pick_up(d):
     """Get customer details for the pick up option.
-
     This function asks the customer for their phone
     number and name for the pick up option.
-
     :param d: customer details list
     :return: None
     """
@@ -281,11 +260,9 @@ def pick_up(d):
 
 def delivery(o, d, g):
     """Get customer details for delivery option.
-
     This function asks the customer for their phone
     number, delivery address and name for the
     delivery option.
-
     :param o: option list
     :param d: customer details list
     :param g: extras list
@@ -343,11 +320,9 @@ def delivery(o, d, g):
 
 def new_pizza(t, p):
     """Add a new pizza to the order.
-
     This function allows the user to add
     up to 5 pizzas of one type of pizza
     to the customer's order.
-
     :param t: order list
     :param p: pizza menu list
     :return: None
@@ -395,10 +370,8 @@ def new_pizza(t, p):
 
 def edit_order(t, e):
     """Presents editing order option menu.
-
     This function shows the options for editing
     the order - add or remove pizzas from order.
-
     :param t: order list
     :param e: option list
     :return: None
@@ -429,10 +402,8 @@ def edit_order(t, e):
 
 def add_pizza(t):
     """Add a pizza to a pizza in the order list.
-
     This function allows the user to add to the
     pizza quantity of a pizza type in the order list.
-
     :param t: order list
     :return: None
     """
@@ -471,11 +442,9 @@ def add_pizza(t):
 
 def remove_pizza(t):
     """Remove/delete pizzas function.
-
     This function allows the user to lessen the pizza quantity
     for a pizza type in the order and/or delete a pizza type
     from the order list.
-
     :param t: order list
     :return: None
     """
@@ -516,10 +485,8 @@ def remove_pizza(t):
 
 def delete_order(t, d, g):
     """Delete order function.
-
     This function allows the user to delete
     the order and start a new order.
-
     :param t: order list
     :param d: customer details list
     :param g: extras list
@@ -535,6 +502,8 @@ def delete_order(t, d, g):
                 t.clear()
                 d.clear()
                 g.clear()
+                print("-" * 60)
+                print("Order deleted")
                 print("---------------------🍕Starting Order🍕"
                       "---------------------")
                 return None
@@ -551,11 +520,9 @@ def delete_order(t, d, g):
 
 def review_order(t, d, g):
     """Review order function that lets the user see the order.
-
     This function shows the user the order, if they want to confirm,
     it "completes" the order and starts a new order but also gives
     the user an option to delete the order and start a new order.
-
     :param t: order list
     :param d: customer details list
     :param g: extras list
@@ -587,84 +554,86 @@ def review_order(t, d, g):
         print("-" * 60)
         # if customer details list is filled, asks user to confirm order
         if len(d):
-            cont = True
-            while cont:
-                # asks if customer wants to add any extra notes
-                ask = get_string("Any extra notes to add to order (Y) or (N)")
-                if ask == "Y":
-                    ext_note = get_note("Please enter the note:")
-                    # adds note to list
-                    extra_notes.append(ext_note)
-                elif ask == "N":
+            final_cont = True
+            while final_cont:
+                # if user chooses to finalise order, prints order out
+                confirm = get_string("Finalise order: (Y) "
+                                     "or (N) or (C)ancel order")
+                if confirm == "Y":
                     cont = True
+                    while cont:
+                        # asks if customer wants to add any extra notes
+                        ask = get_string("Any extra notes to add to order (Y) or (N)")
+                        if ask == "Y":
+                            ext_note = get_note("Please enter the note:")
+                            cont = False
+                            # adds note to list
+                            extra_notes.append(ext_note)
+                        elif ask == "N":
+                            cont = False
+                        else:
+                            print("Unrecognisable entry, select (Y) or (N)")
+                            continue
+                    # prints order and order details
+                    print("⭒" * 53)
+                    for i in range(0, len(t)):
+                        output = "{}{:<6} {:<12} {:>3}{:.2f}" \
+                            .format("x", t[i][1], t[i][0], "$", t[i][2])
+                        print(output)
+                    for i in range(0, len(g)):
+                        output = "{}{:<6} {:<12} {:>3}{:.2f}" \
+                            .format("x", g[i][1], g[i][0], "$", g[i][2])
+                        print(output)
+                    print("Total cost:   {:>10}{:.2f}".format("$", c))
+                    print("-" * 60)
+                    print("Customer Details")
+                    print("-" * 60)
+                    for i in range(0, len(d)):
+                        output = "{:<13}: {}".format(d[i][0], d[i][1])
+                        print(output)
+                    print("-" * 60)
+                    # if extra notes list is filled, prints extra note
+                    if len(extra_notes):
+                        print("Extra Note:")
+                        for x in extra_notes:
+                            print(x)
+                    print("⭒" * 53)
+                    run = True
+                    while run:
+                        # if user confirms, order is completed and a new order starts
+                        ask = get_string("Would you like to "
+                                         "confirm the order, (Y) or (N)")
+                        if ask == "Y":
+                            print("-" * 60)
+                            print("Order Complete")
+                            print("---------------------🍕Starting Order🍕"
+                                  "---------------------")
+                            # clears all information stored in lists
+                            t.clear()
+                            d.clear()
+                            g.clear()
+                            return None
+                        elif ask == "N":
+                            return None
+                        else:
+                            print("Unrecognisable entry, "
+                                  "must be (Y) or (N)")
+                            continue
+                elif confirm == "C":
+                    print("-" * 60)
+                    print("Order is cancelled")
+                    # clears all information stored in lists
+                    t.clear()
+                    d.clear()
+                    g.clear()
+                    print("---------------------🍕Starting Order🍕"
+                          "---------------------")
+                    return None
+                elif confirm == "N":
+                    return None
                 else:
-                    print("Unrecognisable entry, select (Y) or (N)")
+                    print("Unrecognisable entry, must be (Y), (N) or (C)")
                     continue
-                final_cont = True
-                while final_cont:
-                    # if user chooses to finalise order, prints order out
-                    confirm = get_string("Finalise order: (Y) "
-                                         "or (N) or (C)ancel order")
-                    if confirm == "Y":
-                        # prints order and order details
-                        print("⭒" * 53)
-                        for i in range(0, len(t)):
-                            output = "{}{:<6} {:<12} {:>3}{:.2f}" \
-                                .format("x", t[i][1], t[i][0], "$", t[i][2])
-                            print(output)
-                        for i in range(0, len(g)):
-                            output = "{}{:<6} {:<12} {:>3}{:.2f}" \
-                                .format("x", g[i][1], g[i][0], "$", g[i][2])
-                            print(output)
-                        print("Total cost:   {:>10}{:.2f}".format("$", c))
-                        print("-" * 60)
-                        print("Customer Details")
-                        print("-" * 60)
-                        for i in range(0, len(d)):
-                            output = "{:<13}: {}".format(d[i][0], d[i][1])
-                            print(output)
-                        print("-" * 60)
-                        # if extra notes list is filled, prints extra note
-                        if len(extra_notes):
-                            print("Extra Note:")
-                            for x in extra_notes:
-                                print(x)
-                        print("⭒" * 53)
-                        run = True
-                        while run:
-                            # if user confirms, order is completed and a new order starts
-                            ask = get_string("Would you like to "
-                                             "confirm the order, (Y) or (N)")
-                            if ask == "Y":
-                                print("-" * 60)
-                                print("Order Complete")
-                                print("---------------------🍕Starting Order🍕"
-                                      "---------------------")
-                                # clears all information stored in lists
-                                t.clear()
-                                d.clear()
-                                g.clear()
-                                return None
-                            elif ask == "N":
-                                return None
-                            else:
-                                print("Unrecognisable entry, "
-                                      "must be (Y) or (N)")
-                                continue
-                    elif confirm == "C":
-                        print("Order is cancelled")
-                        # clears all information stored in lists
-                        t.clear()
-                        d.clear()
-                        g.clear()
-                        print("---------------------🍕Starting Order🍕"
-                              "---------------------")
-                        return None
-                    elif confirm == "N":
-                        return None
-                    else:
-                        print("Unrecognisable entry, must be (Y), (N) or (C)")
-                        continue
         else:
             print("Please fill in customer details")
             print("-" * 60)
@@ -677,11 +646,9 @@ def review_order(t, d, g):
 
 def main():
     """Show user main option menu.
-
     This function shows the options available
     to use for the main menu and also stores all
     lists in the program.
-
     :return: None
     """
     customer_list = []

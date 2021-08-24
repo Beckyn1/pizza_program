@@ -7,8 +7,8 @@ body
 	margin: 0;
 	padding: 0;
 	color: #333;
-	background-color: #eee;
-	font: 1em/1.2 "Helvetica Neue", Helvetica, Arial, Geneva, sans-serif;
+	background-color: #F6837D;
+	font-family: 'Raleway', sans-serif;
 }
 
 h1,h2,h3,h4,h5,h6
@@ -18,7 +18,7 @@ h1,h2,h3,h4,h5,h6
 	line-height: 1.1;
 }
 
-h1 { font-size: 2.25em; } /* 36px */
+h1 { font-size: 2.25em; font-family: 'Alegreya Sans', sans-serif; } /* 36px */
 h2 { font-size: 1.75em; } /* 28px */
 h3 { font-size: 1.375em; } /* 22px */
 h4 { font-size: 1.125em; } /* 18px */
@@ -88,8 +88,8 @@ Layout styles
 
 .header
 {
-	color: #fff;
-	background: #999;
+	color: #4554A8;
+	background: #F5E67D;
 	padding: 1em 1.25em;
 }
 
@@ -97,7 +97,7 @@ Layout styles
 
 .nav-bar
 {
-	background: #000;
+	background: #7185F5;
 	padding: 0;
 }
 
@@ -105,8 +105,8 @@ Layout styles
 
 .footer
 {
-	color: #fff;
-	background: #000;
+	color: #4554A8;
+	background: #F5E67D;
 	padding: 1em 1.25em;
 }
 
@@ -148,7 +148,7 @@ Nav
 .nav a:hover
 {
 	color: white;
-	background-color: green;
+	background-color: #F6837D;
 }
 
 .nav a:active
@@ -156,6 +156,7 @@ Nav
 	color: white;
 	background-color: red;
 }
+
 /* -----------------------
 column styles
 ------------------------*/
