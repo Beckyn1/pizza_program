@@ -23,7 +23,7 @@ def get_num(m):
         elif length > 12:
             print("Invalid Phone Number")
             return get_phone()
-        elif not re.match('^[0-9()$%_/.]*$', my_integer):
+        elif not re.match('^[0-9]*$', my_integer):
             print("Invalid Phone Number")
             return get_phone()
         else:
