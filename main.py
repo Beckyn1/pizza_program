@@ -637,7 +637,7 @@ def confirm_order(t, d, g):
         else:
             print("Unrecognisable entry, enter (Y) or (N)")
             continue
-    # prints order and order details
+    # prints order and customer details
     print("⭒" * 53)
     for i in range(0, len(t)):
         output = "{}{:<6} {:<12} {:>3}{:.2f}" \
