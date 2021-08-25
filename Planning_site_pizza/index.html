@@ -192,7 +192,7 @@ For a future sprint, I am going to make it so that the program only allows the u
 
 						<h2>Sprint Review</h2>
 				<p>
-	In this sprint I added three new functions. I separated my main function into the main function and the order function,
+	In this sprint I successfully added three new functions. I separated my main function into the main function and the order function,
 	I also added an adding to the pizza quantity function and I added a remove pizza quantity function. The main function now just has
 	a basic menu which asks the user if they want delivery or pick up and redirects the user's choice to the function that they selected.
 	From there, the delivery or pick up function then redirects to the order function.
@@ -210,7 +210,7 @@ For a future sprint, I am going to make it so that the program only allows the u
 		The add_pizza function prints
 	out the menu and then asks the user what pizza they want to add. The function then adds to the pizza quantity depending on the amount
 	the user selects and updates the cost. If then asks the user if they want to add another pizza and if they do, the add_pizza function runs again, if they don't the program returns to the order menu, where the user
-	can then choose to add another pizza again, remove pizzas or quit. In a later version, I will set restrictions on how many pizzas
+	can then choose to add another pizza again, remove pizzas or quit. In a later sprint, I will set restrictions on how many pizzas
 		the user can order.
 	</p>
 	<p>
@@ -261,7 +261,7 @@ For a future sprint, I am going to make it so that the program only allows the u
 <img class="img-responsive" src="assets/img/s_3_plan1.jpg" width="150%">
 </div>
 <div class="column2">
-<h3>Order function plan</h3>
+<h3>Review function plan</h3>
 <img class="img-responsive" src="assets/img/s_3_d2_1.jpg" width="60%">
 </div>
 </div>
@@ -338,7 +338,7 @@ in the next sprint.</p>
 <h3>Repeating pizza in order list</h3>
 <img class="img-responsive" src="assets/img/s_3d2_6.jpg">
 	<br>
-<p>As shown above, there are cheese pizza appears twice, with
+<p>As shown above, the cheese pizza appears twice, with
 different quantities. I need to validate in my next sprint
 so that if the user enters a pizza that is already present in the
 order list, it redirects them to a different function or doesn't let
@@ -397,10 +397,10 @@ are not empty.</p>
 <h3>Sprint Review</h3>
 <br>
 <p>
-	In my 3rd sprint, I decided to do change the base structure of my pizza program. In my previous version, I had the order details
+	In my 3rd sprint, I decided to do change the base structure of my pizza program. In my previous sprint, I had the order details
 	stored within a list called "pizza_list", where when a pizza is added to the order, the quantity would update within the pizza list
 	and the cost would be set to $5 within the list. However, this design was not flexible and also caused some problems when I wanted
-	to further extend my program, so I had to change it.
+	to further extend my program, so I had to change it. The new structure works well, however.
 
 	<p>One of the problems it caused was that when I was creating my review function,
 	I couldn't print out the customer's order without printing out all of the pizza list options (so it would print pizza options
@@ -427,9 +427,9 @@ are not empty.</p>
 	in the main function. It was also confusing to work with when I was creating exit options as it had to go through the main function to quit.
 </p>
 				<p>
-	In version 3, as mentioned earlier, I added a review function. The review function allows users to see what the order consists of and
+	In sprint 3, as mentioned earlier, I added a review function. The review function allows users to see what the order consists of and
 	review the customer details such as deliver address, name, etc. In the review function, it asks the user if they wish to confirm the order
-	or if they want to continue adding more items to the order. It also prints out the customer details. I will update this in my next version
+	or if they want to continue adding more items to the order. It also prints out the customer details. I will update this in my next sprint
 	to make the review function more thorough, however. I want to rearrange the format so that the information given is clearer.
 </p>
 				<p>
@@ -635,7 +635,9 @@ completed first.
 	<p>The Kanban board
 	is designed so that you can move cards with information on them to the column
 	that represents its completion. This was helpful when I was creating my program as it allowed
-me to stay on track and helped to remind me of what needed to get done. The board
+me to stay on track and helped to remind me of what needed to get done. I put the cards
+		that needed to be prioritised at the top of the kanban board and it helped
+		me to make sure the most important parts of code got done over minor parts. The board
 also allowed me to write down new ideas for the program as I progressed, so you can
 	see I added some slightly less doable actions such as creating a mobile app.</p>
 <img class="img-responsive" src="assets/img/s_4_backlog.jpg" width="70%" align="centre">
@@ -671,7 +673,8 @@ also allowed me to write down new ideas for the program as I progressed, so you 
 				means the lines of code are likely to be less complicated and easier to understand by other people. They also
 				mentioned that it is also easier to work using files side by side with shorter lines of code. As well as this,
 				they also said that shorter lines of code work well for code review tools that show the information
-				in two side by side columns.</p>
+				in two side by side columns. As shown in my "Style Checker" section in this website, I made sure to
+				have no style issues left in my code after going through the code checker.</p>
 
 
 				<h4>Functionality</h4>
@@ -722,7 +725,7 @@ Functionality is making sure the program works well and runs smoothly. This mean
 	<p>For input where the user has to enter (Y) or (N) etc I also have validated so that the program accepts
 	both upper and lower case letters as it can be frustrating having to type in upper case for the whole program.
 	Another self fix is how the program ignores spaces if they are typed before the letter when the user enters a menu
-	letter or a (Y)/(N) entry.</p>
+	option or a (Y)/(N) entry.</p>
 <p>My program also uses a consistent navigation system. It is similarly designed to common shopping programs that people
 use daily, it is very predictable and easy to learn how to use. The user is also able to return to the main menu easily
 if they get lost and once they are at the main menu they can quit at any time.</p>
