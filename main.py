@@ -522,7 +522,7 @@ def delete_order(t, d, g):
                 g.clear()
                 print("-" * 60)
                 print("Order deleted")
-                print("---------------------🍕Starting Order🍕"
+                print("-----------------------Starting Order--"
                       "---------------------")
                 return None
             elif ask == "N":
@@ -587,7 +587,7 @@ def review_order(t, d, g):
                     t.clear()
                     d.clear()
                     g.clear()
-                    print("---------------------🍕Starting Order🍕"
+                    print("-----------------------Starting Order--"
                           "---------------------")
                     return None
                 elif confirm == "N":
@@ -643,10 +643,12 @@ def confirm_order(t, d, g):
         output = "{}{:<6} {:<12} {:>3}{:.2f}" \
             .format("x", t[i][1], t[i][0], "$", t[i][2])
         print(output)
+        c += t[i][1] * t[i][2]
     for i in range(0, len(g)):
         output = "{}{:<6} {:<12} {:>3}{:.2f}" \
             .format("x", g[i][1], g[i][0], "$", g[i][2])
         print(output)
+        c += g[i][1] * g[i][2]
     print("Total cost:   {:>10}{:.2f}".format("$", c))
     print("-" * 60)
     print("Customer Details")
@@ -669,7 +671,7 @@ def confirm_order(t, d, g):
         if ask == "Y":
             print("-" * 60)
             print("Order Complete")
-            print("---------------------🍕Starting Order🍕"
+            print("-----------------------Starting Order--"
                   "---------------------")
             # clears all information stored in lists
             t.clear()
@@ -723,15 +725,15 @@ def main():
     ]
 
     edit_list = [
-        ["A", "Add pizza"],
-        ["R", "Remove pizza"]
+        ["A", "Add pizzas"],
+        ["R", "Remove pizzas"]
     ]
 
     customer_details = []
 
     extras = []
 
-    print("---------------------🍕Starting Order🍕"
+    print("-----------------------Starting Order--"
           "---------------------")
     run_program = True
     while run_program:
